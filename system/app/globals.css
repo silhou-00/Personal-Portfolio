@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-venus-50: #f9f8fa;
+  --color-venus-100: #f3f3f4;
+  --color-venus-200: #eae8ec;
+  --color-venus-300: #d8d6dc;
+  --color-venus-400: #c1bec7;
+  --color-venus-500: #a8a2b0;
+  --color-venus-600: #958d9c;
+  --color-venus-700: #817988;
+  --color-venus-800: #6c6572;
+  --color-venus-900: #5a545e;
+  --color-venus-950: #3a373e;
+
+  --color-background: #09090b;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}

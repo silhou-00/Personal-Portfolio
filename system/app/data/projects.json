@@ -1,0 +1,67 @@
+[
+    {
+        "id": "project_01",
+        "title": "GabayTek",
+        "shortDescription": "Description of Project 1",
+        "longDescription": "Description of Project 1",
+        "techStack": ["React Electron-Vite", "Tailwind CSS", "Python-Flask", "Supabase", "QDrant"],
+        "links": 
+        {
+            "github": "Private",
+            "demo": "https://gabaytek-landingpage.vercel.app/"
+        },
+        "image": [""]
+    },
+    {
+        "id": "project_02",
+        "title": "Anchor",
+        "shortDescription": "Description of Project 1",
+        "longDescription": "Description of Project 1",
+        "techStack": ["React-Vite", "Tailwind CSS", "Node.js", "Supabase"],
+        "links": 
+        {
+            "github": "Work in Progress",
+            "demo": "Work in Progress"
+        },
+        "image": [""]
+    },
+    {
+        "id": "project_03",
+        "title": "MemoriA",
+        "shortDescription": "Description of Project 1",
+        "longDescription": "Description of Project 1",
+        "techStack": ["Next.js", "Tailwind CSS", "Node.js", "Supabase"],
+        "links": 
+        {
+            "github": "Work in Progress",
+            "demo": "Work in Progress"
+        },
+        "image": [""]
+    },
+    {
+        "id": "project_04",
+        "title": "Project Hinga",
+        "shortDescription": "Description of Project 1",
+        "longDescription": "Description of Project 1",
+        "techStack": ["React-Vite", "Tailwind CSS", "Python-Flask", "Supabase"],
+        "links": 
+        {
+            "github": "Work in Progress",
+            "demo": "Work in Progress"
+        },
+        "image": [""]
+    },
+    {
+        "id": "project_05",
+        "title": "Makati Heritage Web Portal",
+        "shortDescription": "Description of Project 1",
+        "longDescription": "Description of Project 1",
+        "techStack": ["HTML", "CSS"],
+        "links": 
+        {
+            "github": "Private",
+            "demo": "https://makatiheritagewebportal.vercel.app/"
+        },
+        "image": [""]
+    }
+]

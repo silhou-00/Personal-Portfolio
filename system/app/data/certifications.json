@@ -1,0 +1,72 @@
+[
+    {
+        "id": "cert_01",
+        "title": "Oracle Cloud Infrastructure 2025 Certified Developer Professional",
+        "issuer": "Oracle",
+        "date": "2025",
+        "image": ["/certs/ORACLE/OCI_Developer.jpg", "/certs/ORACLE/OCID25CP.jpg"]
+    },
+    {
+        "id": "cert_02",
+        "title": "National Certificate II in COMPUTER SYSTEM SERVICING",
+        "issuer": "TESDA",
+        "date": "2025",
+        "image": ["/certs/TESDA/NCII.jpg"]
+    },
+    {
+        "id": "cert_03",
+        "title": "Introduction to Computer System Servicing",
+        "issuer": "TESDA",
+        "date": "2025",
+        "image": ["/certs/CSS/Intro_to_CSS.jpg"]
+    },
+    {
+        "id": "cert_04",
+        "title": "Installing and Configuring Computer Systems",
+        "issuer": "TESDA",
+        "date": "2025",
+        "image": ["/certs/CSS/InstallandConfigure.jpg"]
+    },
+    {
+        "id": "cert_05",
+        "title": "Maintaining Computer Systems and Networks",
+        "issuer": "TESDA",
+        "date": "2025",
+        "image": ["/certs/CSS/ComputerSystemandNetworks.jpg"]
+    },
+    {
+        "id": "cert_06",
+        "title": "Setting Up Computer Servers",
+        "issuer": "TESDA",
+        "date": "2025",
+        "image": ["/certs/CSS/ComputerServer.jpg"]
+    },
+    {
+        "id": "cert_07",
+        "title": "Setting Up Computer Networks",
+        "issuer": "TESDA",
+        "date": "2025",
+        "image": ["/certs/CSS/ComputerNetwork.jpg"]
+    },
+    {
+        "id": "cert_08",
+        "title": "Fundamentals of Python Programming",
+        "issuer": "Data Analytics Philippines",
+        "date": "2025",
+        "image": ["/certs/DATA_ANALYTICS/Data_Analytics.jpg"]
+    },
+    {
+        "id": "cert_09",
+        "title": "SHEisDEVCON: UXist",
+        "issuer": "DEVCON Cebu",
+        "date": "2025",
+        "image": ["/certs/DEVCON/SheisDEVCON.jpg"]
+    },
+    {
+        "id": "cert_10",
+        "title": "AI-Tech: Unleashing Tech Potential",
+        "issuer": "University of Makati - College of Computer and Information Sciences",
+        "date": "2025",
+        "image": ["/certs/AI_TECH/AI-Tech.jpg"]
+    }
+]
