@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -47,13 +50,21 @@ interface ProfileData {
 }
 
 export default function HeroSection() {
+  const [showToast, setShowToast] = useState(false);
+
+  const copyEmail = (email: string) => {
+    navigator.clipboard.writeText(email);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 2000);
+  };
+
   const profile: ProfileData = {
     name: 'Mathew Angelo T. Balanlay',
     title: 'IT Student',
     country: 'Philippines',
     email: 'balanlaymathewangelo@gmail.com',
     aboutMe:
-      'A passionate IT student with a keen interest in web development, building innovative solutions, and continuously learning new technologies to solve real-world problems.',
+      'Undergrad IT Student, Following the Cybersecurity Route',
     linkedIn: 'https://www.linkedin.com/in/mathew-14b703357/',
     github: 'https://github.com/silhou-00',
     facebook: 'https://www.facebook.com/MathewBalanlay/',
@@ -93,13 +104,21 @@ export default function HeroSection() {
             {profile.title} • {profile.country}
           </p>
 
-          {/* Email */}
-          <a
-            href={`mailto:${profile.email}`}
-            className="inline-block text-venus-400 hover:text-accent transition-colors mb-4"
+          {/* Email - Click to copy */}
+          <button
+            onClick={() => copyEmail(profile.email)}
+            className="inline-block text-venus-400 hover:text-accent transition-colors mb-4 cursor-pointer"
+            title="Click to copy email"
           >
             {profile.email}
-          </a>
+          </button>
+
+          {/* Toast Notification */}
+          {showToast && (
+            <div className="fixed bottom-6 right-6 bg-venus-700 text-white px-4 py-3 rounded-lg shadow-lg z-50 animate-fade-in">
+              ✓ Email copied to clipboard!
+            </div>
+          )}
 
           {/* About Me */}
           <p className="text-text-secondary leading-relaxed mb-5 max-w-2xl mx-auto lg:mx-0">

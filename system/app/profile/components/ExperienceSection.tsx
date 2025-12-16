@@ -34,7 +34,7 @@ export default function ExperienceSection() {
             onClick={() => setActiveFilter('work')}
             className={`flex-1 py-3 text-center font-medium transition-all ${
               activeFilter === 'work'
-                ? 'bg-venus-700 text-text-primary'
+                ? 'bg-venus-700 text-white'
                 : 'bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50'
             }`}
           >
@@ -44,7 +44,7 @@ export default function ExperienceSection() {
             onClick={() => setActiveFilter('education')}
             className={`flex-1 py-3 text-center font-medium transition-all ${
               activeFilter === 'education'
-                ? 'bg-venus-700 text-text-primary'
+                ? 'bg-venus-700 text-white'
                 : 'bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50'
             }`}
           >
