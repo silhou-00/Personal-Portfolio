@@ -32,7 +32,7 @@
         "title": "Maintaining Computer Systems and Networks",
         "issuer": "TESDA",
         "date": "2025",
-        "image": ["/certs/CSS/ComputerSystemandNetworks.jpg"]
+        "image": ["/certs/CSS/ComputerSystemandNetwork.jpg"]
     },
     {
         "id": "cert_06",
@@ -60,7 +60,7 @@
         "title": "SHEisDEVCON: UXist",
         "issuer": "DEVCON Cebu",
         "date": "2025",
-        "image": ["/certs/DEVCON/SheisDEVCON.jpg"]
+        "image": ["/certs/SHEisDEVCON/SheisDEVCON.jpg"]
     },
     {
         "id": "cert_10",
