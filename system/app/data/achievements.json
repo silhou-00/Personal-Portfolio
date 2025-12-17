@@ -1,0 +1,26 @@
+[
+    {
+        "id": "ach_01",
+        "title": "Ship or Be Shipped 2025",
+        "date": "December 2025",
+        "description": "Part of the Top 5 who got into the finals out of 80 participants and won a bounty. ",
+        "image": [""]
+    },
+    {
+        "id": "ach_02",
+        "title": "AWS Innovation Cup 2025",
+        "date": "December 2025",
+        "description": "Hackathon Champion, Well-Architected Builder, and Best Agora Solution.",
+        "image": ["/achievements/AWS_Hackathon/Whole_Team.jpg", 
+        "/achievements/AWS_Hackathon/Champion.jpg", 
+        "/achievements/AWS_Hackathon/Well-ArchBuild.jpg", 
+        "/achievements/AWS_Hackathon/Best_Agora_Solution.jpg"]
+    },
+    {
+        "id": "ach_03",
+        "title": "Breaking Enigma 2025",
+        "date": "November 2025",
+        "description": "Part of the Top 30 who got into the Hackathon.",
+        "image": ["/achievements/DTI_Hackathon/Cert.png", "/achievements/DTI_Hackathon/DTI_First.jpg"]
+    }
+]

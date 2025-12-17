@@ -1,0 +1,660 @@
+@import "tailwindcss";
+
+@theme {
+  --color-venus-50: #f9f8fa;
+  --color-venus-100: #f3f3f4;
+  --color-venus-200: #eae8ec;
+  --color-venus-300: #d8d6dc;
+  --color-venus-400: #c1bec7;
+  --color-venus-500: #a8a2b0;
+  --color-venus-600: #958d9c;
+  --color-venus-700: #817988;
+  --color-venus-800: #6c6572;
+  --color-venus-900: #5a545e;
+  --color-venus-950: #3a373e;
+
+  --color-background: #09090b;
+  --color-surface: #18181b;
+  --color-surface-elevated: #27272a;
+  --color-border: #3f3f46;
+
+  --color-primary: #a8a2b0;
+  --color-primary-hover: #c1bec7;
+  --color-accent: #6366f1;
+  --color-accent-hover: #818cf8;
+
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+
+  --color-success: #22c55e;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* LIGHT MODE */
+  --color-blue-violet-50: #f0f2fd;
+  --color-blue-violet-100: #e4e7fb;
+  --color-blue-violet-200: #cdd2f8;
+  --color-blue-violet-300: #afb4f2;
+  --color-blue-violet-400: #908fea;
+  --color-blue-violet-500: #7b73e1;
+  --color-blue-violet-600: #634fd0;
+  --color-blue-violet-700: #5c49b9;
+  --color-blue-violet-800: #4c3d96;
+  --color-blue-violet-900: #403877;
+  --color-blue-violet-950: #272145;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-venus-700) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-venus-700);
+  border-radius: 3px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  transition: background-color 0.7s ease, color 0.7s ease;
+}
+
+/* Global theme transition for all elements - exclude animated elements */
+*:not([class*="animate-"]),
+*:not([class*="animate-"])::before,
+*:not([class*="animate-"])::after {
+  transition: background-color 0.7s ease, border-color 0.7s ease,
+    color 0.4s ease;
+}
+
+/* Light mode overrides */
+html.light {
+  /* Softer background with blue-violet accents */
+  --color-background: #f1f5f9;
+  --color-surface: #e4e7fb;
+  --color-surface-elevated: #cdd2f8;
+  --color-border: #afb4f2;
+
+  /* Keep venus colors but inverted for proper contrast */
+  --color-venus-50: #f0f2fd;
+  --color-venus-100: #e4e7fb;
+  --color-venus-200: #cdd2f8;
+  --color-venus-300: #afb4f2;
+  --color-venus-400: #908fea;
+  --color-venus-500: #7b73e1;
+  --color-venus-600: #634fd0;
+  --color-venus-700: #5c49b9;
+  --color-venus-800: #4c3d96;
+  --color-venus-900: #403877;
+  --color-venus-950: #272145;
+
+  /* Primary/accent colors */
+  --color-primary: #5c49b9;
+  --color-primary-hover: #4c3d96;
+  --color-accent: #634fd0;
+  --color-accent-hover: #5c49b9;
+
+  /* All text uses dark color like dark mode background */
+  --color-text-primary: #09090b;
+  --color-text-secondary: #09090b;
+  --color-text-muted: #27272a;
+}
+
+/* Particle animations */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes carouselFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-carousel-fade {
+  animation: carouselFade 0.4s ease-out forwards;
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-open {
+  animation: modalOpen 0.3s ease-out forwards !important;
+}
+
+/* Modal backdrop fade animation */
+@keyframes backdropFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-backdrop {
+  animation: backdropFade 0.2s ease-out forwards;
+}
+
+/* Modal close animations */
+@keyframes modalClose {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+}
+
+.animate-modal-close {
+  animation: modalClose 0.25s ease-in forwards !important;
+}
+
+@keyframes backdropClose {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-backdrop-close {
+  animation: backdropClose 0.25s ease-in forwards !important;
+}
+
+/* Smooth scroll for scrollable content */
+.overflow-y-auto,
+.overflow-y-scroll {
+  scroll-behavior: smooth;
+}
+
+@keyframes floatDust {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.4;
+  }
+  25% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(var(--moveX, 30px), var(--moveY, -30px));
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.4;
+  }
+}
+
+/* Glassmorphism header - transparent with blur */
+.glass-header {
+  background: rgba(9, 9, 11, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(63, 63, 70, 0.3);
+}
+
+/* Glassmorphism section - subtle glass effect */
+.glass-section {
+  background: rgba(24, 24, 27, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(63, 63, 70, 0.3);
+  border-radius: 1rem;
+}
+
+/* Section styling */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding: 4rem 2rem;
+  }
+}
+
+/* Section title - left aligned */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Pill/Tag styling */
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: rgba(39, 39, 42, 0.8);
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  transition: all 0.2s ease;
+}
+
+.tech-pill:hover {
+  background-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+/* Connected filter tabs */
+.filter-tabs {
+  display: inline-flex;
+  background: rgba(24, 24, 27, 0.6);
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  border: 1px solid rgba(63, 63, 70, 0.5);
+}
+
+.filter-tab {
+  padding: 0.625rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-radius: 0.375rem;
+  color: var(--color-text-secondary);
+}
+
+.filter-tab:hover:not(.filter-tab-active) {
+  color: var(--color-text-primary);
+  background: rgba(63, 63, 70, 0.3);
+}
+
+.filter-tab-active {
+  background-color: var(--color-venus-700);
+  color: var(--color-text-primary);
+}
+
+/* Clickable bullet list */
+.clickable-bullet {
+  position: relative;
+  padding-left: 1.25rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.clickable-bullet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-venus-600);
+  transition: background-color 0.2s ease;
+}
+
+.clickable-bullet:hover {
+  color: var(--color-text-primary);
+}
+
+.clickable-bullet:hover::before {
+  background-color: var(--color-accent);
+}
+
+/* Compact skill card */
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem;
+  border-radius: 0.5rem;
+  background-color: rgba(24, 24, 27, 0.5);
+  border: 1px solid rgba(63, 63, 70, 0.4);
+  transition: all 0.2s ease;
+}
+
+.skill-card:hover {
+  background-color: rgba(39, 39, 42, 0.6);
+  transform: translateY(-2px);
+  border-color: var(--color-venus-700);
+}
+
+/* Project card */
+.project-card {
+  background-color: #18181b;
+}
+
+.project-card-image {
+  background-color: #09090b;
+}
+
+/* Experience card */
+.experience-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background-color: rgba(24, 24, 27, 0.5);
+  border: 1px solid rgba(63, 63, 70, 0.4);
+  transition: all 0.2s ease;
+}
+
+.experience-card:hover {
+  border-color: var(--color-venus-700);
+}
+
+/* Status indicator */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-success);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Social link */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(24, 24, 27, 0.6);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  background-color: var(--color-accent);
+  color: white;
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Primary button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-venus-700);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-venus-600);
+  transform: translateY(-1px);
+}
+
+/* Modal carousel navigation */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn-prev {
+  left: 1rem;
+}
+
+.carousel-btn-next {
+  right: 1rem;
+}
+
+/* Content wrapper - higher z-index but transparent backgrounds let particles show */
+.content-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+/* Light mode component overrides */
+html.light .glass-header {
+  background: rgba(241, 245, 249, 0.9) !important;
+  border-bottom: 1px solid rgba(175, 180, 242, 0.5) !important;
+}
+
+html.light .glass-section {
+  background: rgba(228, 231, 251, 0.8) !important;
+  border: 1px solid rgba(175, 180, 242, 0.5) !important;
+}
+
+html.light .skill-card {
+  background-color: rgba(205, 210, 248, 0.6) !important;
+  border: 1px solid rgba(175, 180, 242, 0.6) !important;
+}
+
+html.light .skill-card:hover {
+  background-color: rgba(175, 180, 242, 0.8) !important;
+}
+
+html.light .tech-pill {
+  background-color: rgba(205, 210, 248, 0.8) !important;
+  color: var(--color-text-primary) !important;
+  border: 1px solid rgba(175, 180, 242, 0.8) !important;
+}
+
+html.light .tech-pill:hover {
+  background-color: rgba(175, 180, 242, 1) !important;
+}
+
+html.light .social-link {
+  background-color: rgba(205, 210, 248, 0.8) !important;
+  border: 1px solid rgba(175, 180, 242, 0.8) !important;
+  color: var(--color-text-primary) !important;
+}
+
+html.light .social-link:hover {
+  background-color: var(--color-accent) !important;
+  color: white !important;
+}
+
+html.light .filter-tabs {
+  background: rgba(228, 231, 251, 0.8) !important;
+  border: 1px solid rgba(175, 180, 242, 0.6) !important;
+}
+
+html.light .filter-tab:hover:not(.filter-tab-active) {
+  background: rgba(205, 210, 248, 0.6) !important;
+}
+
+html.light .filter-tab-active {
+  background-color: var(--color-venus-600) !important;
+  color: white !important;
+}
+
+html.light .experience-card {
+  background-color: rgba(205, 210, 248, 0.5) !important;
+  border: 1px solid rgba(175, 180, 242, 0.6) !important;
+}
+
+html.light .btn-primary {
+  background-color: var(--color-venus-600) !important;
+  color: white !important;
+}
+
+html.light .btn-primary:hover {
+  background-color: var(--color-venus-700) !important;
+}
+
+html.light .clickable-bullet::before {
+  background-color: var(--color-venus-600) !important;
+}
+
+html.light .clickable-bullet:hover {
+  color: var(--color-venus-700) !important;
+  background-color: rgba(175, 180, 242, 0.3) !important;
+  border-radius: 0.5rem !important;
+}
+
+html.light .clickable-bullet:hover::before {
+  background-color: var(--color-accent) !important;
+}
+
+/* Hide particles in light mode */
+html.light .particle-background {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Project cards light mode */
+html.light .project-card {
+  background-color: #e4e7fb !important;
+}
+
+html.light .project-card-image {
+  background-color: #cdd2f8 !important;
+}
+
+/* View Transitions API - diagonal wipe animation from top to bottom */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  will-change: clip-path, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation-name: fadeOut;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+  animation-name: wipeDownDiagonal;
+}
+
+@keyframes wipeDownDiagonal {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
