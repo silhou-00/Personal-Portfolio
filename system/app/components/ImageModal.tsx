@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 interface ImageModalProps {
@@ -19,11 +19,30 @@ export default function ImageModal({
   description,
 }: ImageModalProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isClosing, setIsClosing] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
 
   // Filter out empty image strings
   const validImages = images.filter((img) => img && img.trim() !== '');
 
-  if (!isOpen) return null;
+  // Handle open/close states with animation
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true);
+      setIsClosing(false);
+      setCurrentIndex(0);
+    }
+  }, [isOpen]);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setShouldRender(false);
+      onClose();
+    }, 250);
+  };
+
+  if (!shouldRender) return null;
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? validImages.length - 1 : prev - 1));
@@ -35,19 +54,19 @@ export default function ImageModal({
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
-      onClose();
+      handleClose();
     }
   };
 
   return (
     <div
-      className="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4"
+      className={`modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 ${isClosing ? 'animate-backdrop-close' : ''}`}
       onClick={handleBackdropClick}
     >
-      <div className="relative w-full max-w-4xl max-h-[90vh] bg-surface rounded-xl overflow-hidden">
+      <div className={`relative w-full max-w-4xl max-h-[90vh] bg-surface rounded-xl overflow-hidden ${isClosing ? 'animate-modal-close' : 'animate-modal-open'}`}>
         {/* Close button */}
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
         >
           <svg
@@ -78,7 +97,10 @@ export default function ImageModal({
           {/* Image carousel */}
           {validImages.length > 0 ? (
             <div className="relative">
-              <div className="aspect-video relative rounded-lg overflow-hidden bg-background">
+              <div 
+                key={currentIndex}
+                className="aspect-video relative rounded-lg overflow-hidden bg-background animate-carousel-fade"
+              >
                 <Image
                   src={validImages[currentIndex]}
                   alt={`${title} - Image ${currentIndex + 1}`}

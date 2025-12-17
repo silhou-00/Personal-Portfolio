@@ -16,6 +16,7 @@ interface Project {
     demo: string;
   };
   image: string[];
+  video?: string;
 }
 
 export default function ProjectsPage() {

@@ -76,9 +76,12 @@ body {
   transition: background-color 0.7s ease, color 0.7s ease;
 }
 
-/* Global theme transition for all elements */
-*, *::before, *::after {
-  transition: background-color 0.7s ease, border-color 0.7s ease, color 0.4s ease;
+/* Global theme transition for all elements - exclude animated elements */
+*:not([class*="animate-"]),
+*:not([class*="animate-"])::before,
+*:not([class*="animate-"])::after {
+  transition: background-color 0.7s ease, border-color 0.7s ease,
+    color 0.4s ease;
 }
 
 /* Light mode overrides */
@@ -140,6 +143,83 @@ html.light {
 
 .animate-fade-in {
   animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes carouselFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-carousel-fade {
+  animation: carouselFade 0.4s ease-out forwards;
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-open {
+  animation: modalOpen 0.3s ease-out forwards !important;
+}
+
+/* Modal backdrop fade animation */
+@keyframes backdropFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-backdrop {
+  animation: backdropFade 0.2s ease-out forwards;
+}
+
+/* Modal close animations */
+@keyframes modalClose {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+}
+
+.animate-modal-close {
+  animation: modalClose 0.25s ease-in forwards !important;
+}
+
+@keyframes backdropClose {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-backdrop-close {
+  animation: backdropClose 0.25s ease-in forwards !important;
+}
+
+/* Smooth scroll for scrollable content */
+.overflow-y-auto,
+.overflow-y-scroll {
+  scroll-behavior: smooth;
 }
 
 @keyframes floatDust {
@@ -538,4 +618,43 @@ html.light .project-card {
 
 html.light .project-card-image {
   background-color: #cdd2f8 !important;
+}
+
+/* View Transitions API - diagonal wipe animation from top to bottom */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  will-change: clip-path, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation-name: fadeOut;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+  animation-name: wipeDownDiagonal;
+}
+
+@keyframes wipeDownDiagonal {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

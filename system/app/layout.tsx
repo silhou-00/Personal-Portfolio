@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from './components/Header';
 import ParticleBackground from './components/ParticleBackground';
+import SmoothScroll from './components/SmoothScroll';
 import { ThemeProvider } from './context/ThemeContext';
 
 const inter = Inter({
@@ -27,9 +28,11 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
         <ThemeProvider>
-          <ParticleBackground />
-          <Header />
-          <main className="content-wrapper">{children}</main>
+          <SmoothScroll>
+            <ParticleBackground />
+            <Header />
+            <main className="content-wrapper">{children}</main>
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
