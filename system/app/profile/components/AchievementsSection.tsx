@@ -19,7 +19,7 @@ export default function AchievementsSection() {
   const achievements = achievementsData as Achievement[];
 
   return (
-    <section className="section-container">
+    <section className="section-container-compact">
       <div className="glass-section p-6 sm:p-8">
         <h2 className="section-title">Achievements</h2>
 

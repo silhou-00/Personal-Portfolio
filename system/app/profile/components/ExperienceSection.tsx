@@ -26,7 +26,7 @@ export default function ExperienceSection() {
   );
 
   return (
-    <section className="section-container">
+    <section className="section-container-compact">
       <div className="glass-section overflow-hidden">
         {/* Full-width stretched filter tabs */}
         <div className="flex w-full">

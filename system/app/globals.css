@@ -251,16 +251,16 @@ html.light {
   border-bottom: 1px solid rgba(63, 63, 70, 0.3);
 }
 
-/* Glassmorphism section - subtle glass effect */
+/* Glassmorphism section - subtle glass effect with higher opacity */
 .glass-section {
-  background: rgba(24, 24, 27, 0.6);
+  background: rgba(24, 24, 27, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(63, 63, 70, 0.3);
   border-radius: 1rem;
 }
 
-/* Section styling */
+/* Section styling - normal spacing */
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -276,6 +276,25 @@ html.light {
 @media (min-width: 1024px) {
   .section-container {
     padding: 4rem 2rem;
+  }
+}
+
+/* Compact section container - reduced vertical spacing */
+.section-container-compact {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-container-compact {
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container-compact {
+    padding: 2rem 2rem;
   }
 }
 
@@ -529,7 +548,7 @@ html.light .glass-header {
 }
 
 html.light .glass-section {
-  background: rgba(228, 231, 251, 0.8) !important;
+  background: rgba(228, 231, 251, 0.95) !important;
   border: 1px solid rgba(175, 180, 242, 0.5) !important;
 }
 

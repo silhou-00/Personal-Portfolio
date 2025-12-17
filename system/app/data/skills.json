@@ -21,10 +21,6 @@
             "icon": "/skills/web/python-original.svg"
         },
         {
-            "name": "pandas",
-            "icon": "/skills/web/pandas-original-wordmark.svg"
-        },
-        {
             "name": "React",
             "icon": "/skills/web/react-original-wordmark.svg"
         },
@@ -41,24 +37,12 @@
             "icon": "/skills/web/tailwindcss-original.svg"
         },
         {
-            "name": "Node.js",
-            "icon": "/skills/web/nodejs-original-wordmark.svg"
-        },
-        {
-            "name": "Express.js",
-            "icon": "/skills/web/express-original-wordmark.svg"
-        },
-        {
             "name": "MySQL",
             "icon": "/skills/web/mysql-original-wordmark.svg"
         },
         {
             "name": "Supabase",
             "icon": "/skills/web/supabase-original.svg"
-        },
-        {
-            "name": "SQLite",
-            "icon": "/skills/web/sqlite-original-wordmark.svg"
         }
     ],
     "networking": [
