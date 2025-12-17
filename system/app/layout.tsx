@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 import SmoothScroll from './components/SmoothScroll';
 import { ThemeProvider } from './context/ThemeContext';
@@ -58,6 +59,7 @@ export default function RootLayout({
             <ParticleBackground />
             <Header />
             <main className="content-wrapper">{children}</main>
+            <Footer />
           </SmoothScroll>
         </ThemeProvider>
       </body>
