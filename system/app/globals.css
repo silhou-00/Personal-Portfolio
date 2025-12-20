@@ -610,6 +610,19 @@ html.light .btn-primary:hover {
   background-color: var(--color-venus-700) !important;
 }
 
+/* Light mode status badges for certifications */
+html.light .status-completed {
+  background-color: rgba(22, 163, 74, 0.15) !important;
+  color: #15803d !important;
+  border-color: rgba(22, 163, 74, 0.4) !important;
+}
+
+html.light .status-in-progress {
+  background-color: rgba(217, 119, 6, 0.15) !important;
+  color: #b45309 !important;
+  border-color: rgba(217, 119, 6, 0.4) !important;
+}
+
 html.light .clickable-bullet::before {
   background-color: var(--color-venus-600) !important;
 }

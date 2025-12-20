@@ -30,12 +30,13 @@ export default function CertificationsSection() {
   // Status badge component
   const StatusBadge = ({ status }: { status: string }) => {
     const isCompleted = status === 'Completed';
+    const statusClass = isCompleted ? 'status-completed' : 'status-in-progress';
     return (
       <span
-        className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
+        className={`${statusClass} inline-flex items-center px-2 py-0.5 rounded text-xs font-medium shrink-0 ${
           isCompleted
-            ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-            : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+            ? 'bg-green-600/20 text-green-400 border border-green-600/40'
+            : 'bg-amber-500/20 text-amber-400 border border-amber-500/40'
         }`}
       >
         {isCompleted ? (

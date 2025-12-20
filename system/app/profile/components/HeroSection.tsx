@@ -91,7 +91,7 @@ export default function HeroSection() {
           {/* Status indicator */}
           <div className="status-indicator justify-center lg:justify-start mb-3">
             <span className="status-dot"></span>
-            <span>Available for Job and Internship Opportunities</span>
+            <span>Available for Job or Internship</span>
           </div>
 
           {/* Name */}
