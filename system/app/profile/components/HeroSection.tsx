@@ -49,6 +49,13 @@ interface ProfileData {
   facebook: string;
 }
 
+// Easy to edit: Change this to update your current learning status
+interface CurrentlyLearning {
+  label: string;
+  course: string;
+  show: boolean;
+}
+
 export default function HeroSection() {
   const [showToast, setShowToast] = useState(false);
 
@@ -56,6 +63,13 @@ export default function HeroSection() {
     navigator.clipboard.writeText(email);
     setShowToast(true);
     setTimeout(() => setShowToast(false), 2000);
+  };
+
+  // ✏️ EDIT THIS: Update your current learning status here
+  const currentlyLearning: CurrentlyLearning = {
+    label: 'Taking',
+    course: 'Networking Basics',
+    show: true, // Set to false to hide the pill
   };
 
   const profile: ProfileData = {
@@ -121,9 +135,33 @@ export default function HeroSection() {
           )}
 
           {/* About Me */}
-          <p className="text-text-secondary leading-relaxed mb-5 max-w-2xl mx-auto lg:mx-0">
+          <p className="text-text-secondary leading-relaxed mb-4 max-w-2xl mx-auto lg:mx-0">
             {profile.aboutMe}
           </p>
+
+          {/* Currently Studying */}
+          {currentlyLearning.show && (
+            <div className="flex justify-center lg:justify-start mb-5 cursor-default">
+              <span className="currently-studying-pill">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  />
+                </svg>
+                <span>{currentlyLearning.label}:</span>
+                <span className="font-medium">{currentlyLearning.course}</span>
+              </span>
+            </div>
+          )}
 
           {/* Actions - Resume and Social Links */}
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
