@@ -10,6 +10,7 @@ interface Certification {
   title: string;
   issuer: string;
   date: string;
+  status: string;
   image: string[];
 }
 
@@ -25,6 +26,36 @@ export default function CertificationsSection() {
   const networkingCerts = certifications.filter(
     (cert) => cert.category === 'networking'
   );
+
+  // Status badge component
+  const StatusBadge = ({ status }: { status: string }) => {
+    const isCompleted = status === 'Completed';
+    return (
+      <span
+        className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
+          isCompleted
+            ? 'bg-green-500/20 text-green-400 border border-green-500/30'
+            : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+        }`}
+      >
+        {isCompleted ? (
+          <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fillRule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clipRule="evenodd"
+            />
+          </svg>
+        ) : (
+          <svg className="w-3 h-3 mr-1 animate-spin" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+          </svg>
+        )}
+        {status}
+      </span>
+    );
+  };
 
   return (
     <section className="section-container-compact">
@@ -45,7 +76,10 @@ export default function CertificationsSection() {
                       onClick={() => setSelectedCert(cert)}
                       className="clickable-bullet w-full text-left text-text-secondary hover:text-text-primary transition-colors py-1"
                     >
-                      <span className="font-medium text-base">{cert.title}</span>
+                      <div className="flex items-start justify-between gap-2">
+                        <span className="font-medium text-base">{cert.title}</span>
+                        <StatusBadge status={cert.status} />
+                      </div>
                       <span className="block text-sm text-text-muted mt-0.5">
                         {cert.issuer} • {cert.date}
                       </span>
@@ -70,7 +104,10 @@ export default function CertificationsSection() {
                         onClick={() => setSelectedCert(cert)}
                         className="clickable-bullet w-full text-left text-text-secondary hover:text-text-primary transition-colors py-1"
                       >
-                        <span className="font-medium text-base">{cert.title}</span>
+                        <div className="flex items-start justify-between gap-2">
+                          <span className="font-medium text-base">{cert.title}</span>
+                          <StatusBadge status={cert.status} />
+                        </div>
                         <span className="block text-sm text-text-muted mt-0.5">
                           {cert.issuer} • {cert.date}
                         </span>

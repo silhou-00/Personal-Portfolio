@@ -5,6 +5,7 @@
         "title": "Oracle Cloud Infrastructure 2025 Certified Developer Professional",
         "issuer": "Oracle",
         "date": "2025",
+        "status": "Completed",
         "image": ["/certs/ORACLE/OCI_Developer.jpg", "/certs/ORACLE/OCID25CP.jpg"]
     },
     {
@@ -13,6 +14,7 @@
         "title": "National Certificate II in COMPUTER SYSTEM SERVICING",
         "issuer": "TESDA",
         "date": "2025",
+        "status": "Completed",
         "image": ["/certs/TESDA/NCII.jpg"]
     },
     {
@@ -21,6 +23,7 @@
         "title": "Fundamentals of Python Programming",
         "issuer": "Data Analytics Philippines",
         "date": "2025",
+        "status": "Completed",
         "image": ["/certs/DATA_ANALYTICS/Data_Analytics.jpg"]
     },
     {
@@ -29,6 +32,7 @@
         "title": "SHEisDEVCON: UXist",
         "issuer": "DEVCON Cebu",
         "date": "2025",
+        "status": "Completed",
         "image": ["/certs/SHEisDEVCON/SheisDEVCON.jpg"]
     }
 ]
