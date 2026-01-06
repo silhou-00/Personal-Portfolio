@@ -68,7 +68,7 @@ export default function HeroSection() {
   // ✏️ EDIT THIS: Update your current learning status here
   const currentlyLearning: CurrentlyLearning = {
     label: 'Taking',
-    course: 'Advent of Cyber',
+    course: 'Cybersecurity 101',
     show: true, // Set to false to hide the pill
   };
 
