@@ -1,10 +1,10 @@
 [
     {
         "id": "ach_01",
-        "title": "Ship or Be Shipped 2025",
-        "date": "December 2025",
-        "description": "Part of the Top 5 who got into the finals out of 80 participants and won a bounty. ",
-        "image": [""]
+        "title": "Breaking Enigma 2025",
+        "date": "November 2025",
+        "description": "Part of the Top 30 who got into the Hackathon.",
+        "image": ["/achievements/DTI_Hackathon/Cert.png", "/achievements/DTI_Hackathon/DTI_First.jpg"]
     },
     {
         "id": "ach_02",
@@ -18,9 +18,16 @@
     },
     {
         "id": "ach_03",
-        "title": "Breaking Enigma 2025",
-        "date": "November 2025",
-        "description": "Part of the Top 30 who got into the Hackathon.",
-        "image": ["/achievements/DTI_Hackathon/Cert.png", "/achievements/DTI_Hackathon/DTI_First.jpg"]
+        "title": "Ship or Be Shipped 2025",
+        "date": "December 2025",
+        "description": "Part of the Top 5 who got into the finals out of 80 participants and won a bounty.",
+        "image": [""]
+    },
+    {
+        "id": "ach_04",
+        "title": "Advent of Cyber",
+        "date": "December 2025",
+        "description": "24 Days Beginner-Friendly Cybersecurity Challenges.",
+        "image": ["/achievements/AdventOfCyber/AdventofCyberPreview.jpg"]
     }
 ]

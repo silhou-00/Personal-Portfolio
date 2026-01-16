@@ -84,7 +84,7 @@ export default function ExperienceSection() {
 
               {/* Timeline items */}
               <div className="space-y-0">
-                {filteredExperiences.map((exp, index) => (
+                {[...filteredExperiences].reverse().map((exp, index) => (
                   <div 
                     key={exp.id} 
                     className={`relative flex gap-4 sm:gap-5 ${
