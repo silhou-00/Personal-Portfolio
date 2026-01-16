@@ -167,7 +167,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
             {/* Download Resume Button */}
             <Link
-              href="/portfolio/MCS Resume Template (Bullet Points).pdf"
+              href="/portfolio/Resume.pdf"
               target="_blank"
               className="btn-primary"
             >
