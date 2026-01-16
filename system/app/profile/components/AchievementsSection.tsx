@@ -25,7 +25,7 @@ export default function AchievementsSection() {
 
         <div className="max-h-[400px] overflow-y-auto pr-2">
           <ul className="space-y-3">
-            {achievements.map((achievement) => (
+            {[...achievements].reverse().map((achievement) => (
               <li key={achievement.id}>
                 <button
                   onClick={() => setSelectedAchievement(achievement)}

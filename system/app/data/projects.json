@@ -28,8 +28,8 @@
         "techStack": ["React-Vite", "Tailwind CSS", "Node.js", "Supabase"],
         "links": 
         {
-            "github": "Still Hiding It :3",
-            "demo": "Will Deploy Soon"
+            "github": "Private",
+            "demo": "https://audit-anchor.vercel.app/"
         },
         "image": [
             "/projects/Anchor/Landing.jpg",
