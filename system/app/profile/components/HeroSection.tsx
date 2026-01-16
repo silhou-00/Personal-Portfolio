@@ -68,7 +68,7 @@ export default function HeroSection() {
   // ✏️ EDIT THIS: Update your current learning status here
   const currentlyLearning: CurrentlyLearning = {
     label: 'Taking',
-    course: 'Cybersecurity 101',
+    course: 'ISC2 Cybersecurity',
     show: true, // Set to false to hide the pill
   };
 
@@ -167,7 +167,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
             {/* Download Resume Button */}
             <Link
-              href="/portfolio/MCS Resume Template (Bullet Points).pdf"
+              href="/portfolio/Resume.pdf"
               target="_blank"
               className="btn-primary"
             >
