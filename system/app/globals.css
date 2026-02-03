@@ -61,15 +61,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: linear-gradient(135deg, 
-    #1e3a5f 0%, 
-    #2c5a78 20%, 
-    #468cb1 40%, 
-    #75adcb 60%, 
-    #357094 80%, 
-    #1e3a5f 100%
-  );
-  background-attachment: fixed;
+  background-color: var(--color-background);
   color: var(--color-text-primary);
   min-height: 100vh;
 }
@@ -500,4 +492,78 @@ body {
 .particle-background {
   opacity: 0;
   pointer-events: none;
+}
+
+/* Sticky contact bar - horizontal pill */
+.sticky-contact-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(158, 196, 219, 0.5);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+}
+
+/* Sticky contact bar - vertical layout (hidden on mobile) */
+.sticky-contact-bar-vertical {
+  display: none; /* Hidden by default (mobile) */
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1rem 0.9rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(158, 196, 219, 0.5);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  min-width: 180px;
+}
+
+/* Show on tablet and larger (768px+) */
+@media (min-width: 768px) {
+  .sticky-contact-bar-vertical {
+    display: flex;
+  }
+}
+
+/* Speech bubble slide-in animation from left */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+  70% {
+    transform: translateX(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Speech bubble slide-out animation to left */
+@keyframes slideOutToLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.4s ease-out forwards;
+}
+
+.animate-slide-out-left {
+  animation: slideOutToLeft 0.3s ease-in forwards;
 }

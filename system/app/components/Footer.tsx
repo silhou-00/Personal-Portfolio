@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t border-border/30 mt-8">
@@ -13,7 +12,7 @@ export default function Footer() {
               Mathew Angelo T. Balanlay
             </h3>
             <p className="text-sm text-text-muted">
-              © {currentYear}. All rights reserved.
+              © 2025. All rights reserved.
             </p>
           </div>
 

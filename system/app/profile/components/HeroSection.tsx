@@ -78,7 +78,7 @@ export default function HeroSection() {
     country: 'Philippines',
     email: 'balanlaymathewangelo@gmail.com',
     aboutMe:
-      'Undergrad IT Student, Starting the Cybersecurity Route',
+      'Undergrad IT Student, Assembling DevSecOps Career',
     linkedIn: 'https://www.linkedin.com/in/mathew-14b703357/',
     github: 'https://github.com/silhou-00',
     facebook: 'https://www.facebook.com/MathewBalanlay/',
