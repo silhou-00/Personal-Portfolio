@@ -49,7 +49,7 @@ export default function CertificationsSection() {
                     >
                       <div className="flex items-center gap-3">
                         {/* Issuer Logo */}
-                        <div className="relative w-10 h-10 shrink-0 rounded-md overflow-hidden bg-white/10 border border-border/30">
+                        <div className="relative w-14 h-14 shrink-0 rounded-md overflow-hidden bg-white/10 border border-border/30">
                           <Image
                             src={cert.logo}
                             alt={cert.issuer}
@@ -88,7 +88,7 @@ export default function CertificationsSection() {
                       >
                         <div className="flex items-center gap-3">
                           {/* Issuer Logo */}
-                          <div className="relative w-10 h-10 shrink-0 rounded-md overflow-hidden bg-white/10 border border-border/30">
+                          <div className="relative w-14 h-14 shrink-0 rounded-md overflow-hidden bg-white/10 border border-border/30">
                             <Image
                               src={cert.logo}
                               alt={cert.issuer}

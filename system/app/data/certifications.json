@@ -34,5 +34,23 @@
         "date": "2025",
         "logo": "/logo/DEVCONCebu.png",
         "image": ["/certs/SHEisDEVCON/SheisDEVCON.jpg"]
+    },
+    {
+        "id": "cert_05",
+        "category": "networking",
+        "title": "APNIC Foundation - Internet Resource Management",
+        "issuer": "APNIC",
+        "date": "2026",
+        "logo": "/logo/APNICLogo.png",
+        "image": ["/certs/APNIC/APNIC.jpg"]
+    },
+    {
+        "id": "cert_06",
+        "category": "networking",
+        "title": "ISC2 Certified in Cybersecurity",
+        "issuer": "ISC2",
+        "date": "2026",
+        "logo": "/logo/ISC2Logo.png",
+        "image": ["/certs/ISC2/DOMAIN1.jpg"]
     }
 ]
