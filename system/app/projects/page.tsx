@@ -48,7 +48,7 @@ export default function ProjectsPage() {
               onClick={() => setActiveFilter('webdevelopment')}
               className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${
                 activeFilter === 'webdevelopment'
-                  ? 'bg-venus-700 text-white'
+                  ? 'bg-shakespeare-700 text-white'
                   : 'bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50'
               }`}
             >
@@ -58,7 +58,7 @@ export default function ProjectsPage() {
               onClick={() => setActiveFilter('networking')}
               className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${
                 activeFilter === 'networking'
-                  ? 'bg-venus-700 text-white'
+                  ? 'bg-shakespeare-700 text-white'
                   : 'bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50'
               }`}
             >

@@ -28,7 +28,7 @@ export default function SkillsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Web Development Section */}
           <div>
-            <h3 className="text-sm font-semibold text-venus-400 mb-4 uppercase tracking-wide">
+            <h3 className="text-sm font-semibold text-shakespeare-400 mb-4 uppercase tracking-wide">
               Web Development
             </h3>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5 gap-3 max-h-72 overflow-y-auto pr-2">
@@ -52,7 +52,7 @@ export default function SkillsSection() {
 
           {/* Networking/Cybersecurity Section */}
           <div>
-            <h3 className="text-sm font-semibold text-venus-400 mb-4 uppercase tracking-wide">
+            <h3 className="text-sm font-semibold text-shakespeare-400 mb-4 uppercase tracking-wide">
               Networking / Cybersecurity
             </h3>
             {networkingSkills.length > 0 ? (

@@ -89,7 +89,7 @@ export default function HeroSection() {
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center pt-20">
         {/* Profile Picture - Centered */}
         <div className="shrink-0 pt-10">
-          <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden border-2 border-venus-700">
+          <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden border-2 border-shakespeare-700">
             <Image
               src="/Profile.jpg"
               alt={profile.name}
@@ -114,14 +114,14 @@ export default function HeroSection() {
           </h1>
 
           {/* Title & Location */}
-          <p className="text-lg sm:text-xl text-venus-500 mb-3">
+          <p className="text-lg sm:text-xl text-shakespeare-500 mb-3">
             {profile.title} • {profile.country}
           </p>
 
           {/* Email - Click to copy */}
           <button
             onClick={() => copyEmail(profile.email)}
-            className="inline-block text-venus-400 hover:text-accent transition-colors mb-4 cursor-pointer"
+            className="inline-block text-shakespeare-400 hover:text-accent transition-colors mb-4 cursor-pointer"
             title="Click to copy email"
           >
             {profile.email}
@@ -129,7 +129,7 @@ export default function HeroSection() {
 
           {/* Toast Notification */}
           {showToast && (
-            <div className="fixed bottom-6 right-6 bg-venus-700 text-white px-4 py-3 rounded-lg shadow-lg z-50 animate-fade-in">
+            <div className="fixed bottom-6 right-6 bg-shakespeare-700 text-white px-4 py-3 rounded-lg shadow-lg z-50 animate-fade-in">
               ✓ Email copied to clipboard!
             </div>
           )}

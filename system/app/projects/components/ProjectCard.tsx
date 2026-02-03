@@ -19,7 +19,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
   return (
     <button
       onClick={onClick}
-      className="project-card w-full h-full text-left border border-border rounded-xl overflow-hidden transition-all duration-300 hover:border-venus-700 hover:shadow-xl hover:shadow-venus-900/20 group flex flex-col"
+      className="project-card w-full h-full text-left border border-border rounded-xl overflow-hidden transition-all duration-300 hover:border-shakespeare-700 hover:shadow-xl hover:shadow-shakespeare-900/20 group flex flex-col"
     >
       {/* Image - fixed at top with no gap */}
       <div className="project-card-image aspect-video relative">
@@ -34,7 +34,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
           <div className="w-full h-full flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-12 w-12 text-venus-700"
+              className="h-12 w-12 text-shakespeare-700"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -52,7 +52,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-venus-400 transition-colors">
+        <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-shakespeare-400 transition-colors">
           {project.title}
         </h3>
         <p className="text-text-secondary text-sm mb-4 line-clamp-2">

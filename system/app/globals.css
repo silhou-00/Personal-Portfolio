@@ -1,53 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-  --color-venus-50: #f9f8fa;
-  --color-venus-100: #f3f3f4;
-  --color-venus-200: #eae8ec;
-  --color-venus-300: #d8d6dc;
-  --color-venus-400: #c1bec7;
-  --color-venus-500: #a8a2b0;
-  --color-venus-600: #958d9c;
-  --color-venus-700: #817988;
-  --color-venus-800: #6c6572;
-  --color-venus-900: #5a545e;
-  --color-venus-950: #3a373e;
-
-  --color-background: #09090b;
-  --color-surface: #18181b;
-  --color-surface-elevated: #27272a;
-  --color-border: #3f3f46;
-
-  --color-primary: #a8a2b0;
-  --color-primary-hover: #c1bec7;
-  --color-accent: #6366f1;
-  --color-accent-hover: #818cf8;
-
-  --color-text-primary: #fafafa;
-  --color-text-secondary: #a1a1aa;
-  --color-text-muted: #71717a;
-
+  /* Shakespeare color palette - blue/teal tones */
+  --color-shakespeare-50: #f4f8fb;
+  --color-shakespeare-100: #e8eff6;
+  --color-shakespeare-200: #cbe0ec;
+  --color-shakespeare-300: #9ec4db;
+  --color-shakespeare-400: #75adcb;
+  --color-shakespeare-500: #468cb1;
+  --color-shakespeare-600: #357094;
+  --color-shakespeare-700: #2c5a78;
+  --color-shakespeare-800: #274c65;
+  --color-shakespeare-900: #254155;
+  --color-shakespeare-950: #192b38;
+  
+  /* Light mode base colors */
+  --color-background: #f1f5f9;
+  --color-surface: #e8eff6;
+  --color-surface-elevated: #cbe0ec;
+  --color-border: #9ec4db;
+  
+  /* Primary/accent colors - shakespeare */
+  --color-primary: #357094;
+  --color-primary-hover: #2c5a78;
+  --color-accent: #468cb1;
+  --color-accent-hover: #357094;
+  
+  /* Dark text for light mode */
+  --color-text-primary: #09090b;
+  --color-text-secondary: #27272a;
+  --color-text-muted: #52525b;
+  
   --color-success: #22c55e;
-
+  
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-
-  /* LIGHT MODE */
-  --color-blue-violet-50: #f0f2fd;
-  --color-blue-violet-100: #e4e7fb;
-  --color-blue-violet-200: #cdd2f8;
-  --color-blue-violet-300: #afb4f2;
-  --color-blue-violet-400: #908fea;
-  --color-blue-violet-500: #7b73e1;
-  --color-blue-violet-600: #634fd0;
-  --color-blue-violet-700: #5c49b9;
-  --color-blue-violet-800: #4c3d96;
-  --color-blue-violet-900: #403877;
-  --color-blue-violet-950: #272145;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-venus-700) transparent;
+  scrollbar-color: var(--color-shakespeare-600) transparent;
 }
 
 *::-webkit-scrollbar {
@@ -60,7 +51,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--color-venus-700);
+  background-color: var(--color-shakespeare-600);
   border-radius: 3px;
 }
 
@@ -70,51 +61,23 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-background);
+  background: linear-gradient(135deg, 
+    #1e3a5f 0%, 
+    #2c5a78 20%, 
+    #468cb1 40%, 
+    #75adcb 60%, 
+    #357094 80%, 
+    #1e3a5f 100%
+  );
+  background-attachment: fixed;
   color: var(--color-text-primary);
   min-height: 100vh;
-  transition: background-color 0.7s ease, color 0.7s ease;
 }
 
-/* Global theme transition for all elements - exclude animated elements */
-*:not([class*="animate-"]),
-*:not([class*="animate-"])::before,
-*:not([class*="animate-"])::after {
-  transition: background-color 0.7s ease, border-color 0.7s ease,
-    color 0.4s ease;
-}
-
-/* Light mode overrides */
-html.light {
-  /* Softer background with blue-violet accents */
-  --color-background: #f1f5f9;
-  --color-surface: #e4e7fb;
-  --color-surface-elevated: #cdd2f8;
-  --color-border: #afb4f2;
-
-  /* Keep venus colors but inverted for proper contrast */
-  --color-venus-50: #f0f2fd;
-  --color-venus-100: #e4e7fb;
-  --color-venus-200: #cdd2f8;
-  --color-venus-300: #afb4f2;
-  --color-venus-400: #908fea;
-  --color-venus-500: #7b73e1;
-  --color-venus-600: #634fd0;
-  --color-venus-700: #5c49b9;
-  --color-venus-800: #4c3d96;
-  --color-venus-900: #403877;
-  --color-venus-950: #272145;
-
-  /* Primary/accent colors */
-  --color-primary: #5c49b9;
-  --color-primary-hover: #4c3d96;
-  --color-accent: #634fd0;
-  --color-accent-hover: #5c49b9;
-
-  /* All text uses dark color like dark mode background */
-  --color-text-primary: #09090b;
-  --color-text-secondary: #09090b;
-  --color-text-muted: #27272a;
+/* Smooth scroll for scrollable content */
+.overflow-y-auto,
+.overflow-y-scroll {
+  scroll-behavior: smooth;
 }
 
 /* Particle animations */
@@ -124,6 +87,7 @@ html.light {
     opacity: 0.3;
     transform: scale(1);
   }
+  
   50% {
     opacity: 0.8;
     transform: scale(1.2);
@@ -135,6 +99,7 @@ html.light {
     opacity: 0;
     transform: translateY(10px);
   }
+  
   to {
     opacity: 1;
     transform: translateY(0);
@@ -149,6 +114,7 @@ html.light {
   from {
     opacity: 0;
   }
+  
   to {
     opacity: 1;
   }
@@ -163,6 +129,7 @@ html.light {
     opacity: 0;
     transform: scale(0.95) translateY(10px);
   }
+  
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -178,6 +145,7 @@ html.light {
   from {
     opacity: 0;
   }
+  
   to {
     opacity: 1;
   }
@@ -185,6 +153,9 @@ html.light {
 
 .modal-backdrop {
   animation: backdropFade 0.2s ease-out forwards;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 /* Modal close animations */
@@ -193,6 +164,7 @@ html.light {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
+  
   to {
     opacity: 0;
     transform: scale(0.95) translateY(10px);
@@ -207,6 +179,7 @@ html.light {
   from {
     opacity: 1;
   }
+  
   to {
     opacity: 0;
   }
@@ -216,48 +189,22 @@ html.light {
   animation: backdropClose 0.25s ease-in forwards !important;
 }
 
-/* Smooth scroll for scrollable content */
-.overflow-y-auto,
-.overflow-y-scroll {
-  scroll-behavior: smooth;
-}
-
-@keyframes floatDust {
-  0% {
-    transform: translate(0, 0);
-    opacity: 0.4;
-  }
-  25% {
-    opacity: 0.6;
-  }
-  50% {
-    transform: translate(var(--moveX, 30px), var(--moveY, -30px));
-    opacity: 0.5;
-  }
-  75% {
-    opacity: 0.4;
-  }
-  100% {
-    transform: translate(0, 0);
-    opacity: 0.4;
-  }
-}
-
-/* Glassmorphism header - transparent with blur */
+/* Glassmorphism header - light mode */
 .glass-header {
-  background: rgba(9, 9, 11, 0.7);
+  background: rgba(241, 245, 249, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(63, 63, 70, 0.3);
+  border-bottom: 1px solid rgba(158, 196, 219, 0.5);
 }
 
-/* Glassmorphism section - subtle glass effect with higher opacity */
+/* Glassmorphism section - frosted glass effect */
 .glass-section {
-  background: rgba(24, 24, 27, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(63, 63, 70, 0.3);
-  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 /* Section styling - normal spacing */
@@ -267,13 +214,13 @@ html.light {
   padding: 2rem 1.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .section-container {
     padding: 3rem 2rem;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width:1024px) {
   .section-container {
     padding: 4rem 2rem;
   }
@@ -286,13 +233,13 @@ html.light {
   padding: 1rem 1.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .section-container-compact {
     padding: 1.5rem 2rem;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width:1024px) {
   .section-container-compact {
     padding: 2rem 2rem;
   }
@@ -307,45 +254,37 @@ html.light {
   text-align: left;
 }
 
-@media (min-width: 640px) {
+@media (min-width:640px) {
   .section-title {
     font-size: 1.75rem;
   }
 }
 
-/* Modal backdrop */
-.modal-backdrop {
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-/* Pill/Tag styling */
+/* Pill/Tag styling - light mode */
 .tech-pill {
   display: inline-flex;
   align-items: center;
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
-  background-color: rgba(39, 39, 42, 0.8);
-  color: var(--color-text-secondary);
+  background-color: rgba(203, 224, 236, 0.8);
+  color: var(--color-text-primary);
   font-size: 0.75rem;
   font-weight: 500;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(158, 196, 219, 0.8);
   transition: all 0.2s ease;
 }
 
 .tech-pill:hover {
-  background-color: var(--color-border);
-  color: var(--color-text-primary);
+  background-color: rgba(158, 196, 219, 1);
 }
 
-/* Connected filter tabs */
+/* Connected filter tabs - light mode */
 .filter-tabs {
   display: inline-flex;
-  background: rgba(24, 24, 27, 0.6);
+  background: rgba(232, 239, 246, 0.8);
   border-radius: 0.5rem;
   padding: 0.25rem;
-  border: 1px solid rgba(63, 63, 70, 0.5);
+  border: 1px solid rgba(158, 196, 219, 0.6);
 }
 
 .filter-tab {
@@ -359,15 +298,15 @@ html.light {
 
 .filter-tab:hover:not(.filter-tab-active) {
   color: var(--color-text-primary);
-  background: rgba(63, 63, 70, 0.3);
+  background: rgba(203, 224, 236, 0.6);
 }
 
 .filter-tab-active {
-  background-color: var(--color-venus-700);
-  color: var(--color-text-primary);
+  background-color: var(--color-shakespeare-600);
+  color: white;
 }
 
-/* Clickable bullet list */
+/* Clickable bullet list - light mode */
 .clickable-bullet {
   position: relative;
   padding-left: 1.25rem;
@@ -383,19 +322,21 @@ html.light {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--color-venus-600);
+  background-color: var(--color-shakespeare-600);
   transition: background-color 0.2s ease;
 }
 
 .clickable-bullet:hover {
-  color: var(--color-text-primary);
+  color: var(--color-shakespeare-700);
+  background-color: rgba(158, 196, 219, 0.3);
+  border-radius: 0.5rem;
 }
 
 .clickable-bullet:hover::before {
   background-color: var(--color-accent);
 }
 
-/* Compact skill card */
+/* Compact skill card - light mode */
 .skill-card {
   display: flex;
   flex-direction: column;
@@ -403,39 +344,39 @@ html.light {
   gap: 0.5rem;
   padding: 0.875rem;
   border-radius: 0.5rem;
-  background-color: rgba(24, 24, 27, 0.5);
-  border: 1px solid rgba(63, 63, 70, 0.4);
+  background-color: rgba(203, 224, 236, 0.6);
+  border: 1px solid rgba(158, 196, 219, 0.6);
   transition: all 0.2s ease;
 }
 
 .skill-card:hover {
-  background-color: rgba(39, 39, 42, 0.6);
+  background-color: rgba(158, 196, 219, 0.8);
   transform: translateY(-2px);
-  border-color: var(--color-venus-700);
+  border-color: var(--color-shakespeare-600);
 }
 
-/* Project card */
+/* Project card - light mode */
 .project-card {
-  background-color: #18181b;
+  background-color: #e8eff6;
 }
 
 .project-card-image {
-  background-color: #09090b;
+  background-color: #cbe0ec;
 }
 
-/* Experience card */
+/* Experience card - light mode */
 .experience-card {
   display: flex;
   gap: 1rem;
   padding: 1.25rem;
   border-radius: 0.75rem;
-  background-color: rgba(24, 24, 27, 0.5);
-  border: 1px solid rgba(63, 63, 70, 0.4);
+  background-color: rgba(203, 224, 236, 0.5);
+  border: 1px solid rgba(158, 196, 219, 0.6);
   transition: all 0.2s ease;
 }
 
 .experience-card:hover {
-  border-color: var(--color-venus-700);
+  border-color: var(--color-shakespeare-600);
 }
 
 /* Status indicator */
@@ -461,13 +402,14 @@ html.light {
     opacity: 1;
     transform: scale(1);
   }
+  
   50% {
     opacity: 0.7;
     transform: scale(1.1);
   }
 }
 
-/* Social link */
+/* Social link - light mode */
 .social-link {
   display: inline-flex;
   align-items: center;
@@ -475,9 +417,9 @@ html.light {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgba(24, 24, 27, 0.6);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
+  background-color: rgba(203, 224, 236, 0.8);
+  border: 1px solid rgba(158, 196, 219, 0.8);
+  color: var(--color-text-primary);
   transition: all 0.2s ease;
 }
 
@@ -497,25 +439,25 @@ html.light {
   border-radius: 9999px;
   background-color: transparent;
   border: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   font-size: 0.8125rem;
 }
 
-/* Primary button */
+/* Primary button - light mode */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
-  background-color: var(--color-venus-700);
-  color: var(--color-text-primary);
+  background-color: var(--color-shakespeare-600);
+  color: white;
   font-weight: 500;
   transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-venus-600);
+  background-color: var(--color-shakespeare-700);
   transform: translateY(-1px);
 }
 
@@ -554,152 +496,8 @@ html.light {
   z-index: 10;
 }
 
-/* Light mode component overrides */
-html.light .glass-header {
-  background: rgba(241, 245, 249, 0.9) !important;
-  border-bottom: 1px solid rgba(175, 180, 242, 0.5) !important;
-}
-
-html.light .glass-section {
-  background: rgba(228, 231, 251, 0.95) !important;
-  border: 1px solid rgba(175, 180, 242, 0.5) !important;
-}
-
-html.light .skill-card {
-  background-color: rgba(205, 210, 248, 0.6) !important;
-  border: 1px solid rgba(175, 180, 242, 0.6) !important;
-}
-
-html.light .skill-card:hover {
-  background-color: rgba(175, 180, 242, 0.8) !important;
-}
-
-html.light .tech-pill {
-  background-color: rgba(205, 210, 248, 0.8) !important;
-  color: var(--color-text-primary) !important;
-  border: 1px solid rgba(175, 180, 242, 0.8) !important;
-}
-
-html.light .tech-pill:hover {
-  background-color: rgba(175, 180, 242, 1) !important;
-}
-
-html.light .social-link {
-  background-color: rgba(205, 210, 248, 0.8) !important;
-  border: 1px solid rgba(175, 180, 242, 0.8) !important;
-  color: var(--color-text-primary) !important;
-}
-
-html.light .social-link:hover {
-  background-color: var(--color-accent) !important;
-  color: white !important;
-}
-
-html.light .filter-tabs {
-  background: rgba(228, 231, 251, 0.8) !important;
-  border: 1px solid rgba(175, 180, 242, 0.6) !important;
-}
-
-html.light .filter-tab:hover:not(.filter-tab-active) {
-  background: rgba(205, 210, 248, 0.6) !important;
-}
-
-html.light .filter-tab-active {
-  background-color: var(--color-venus-600) !important;
-  color: white !important;
-}
-
-html.light .experience-card {
-  background-color: rgba(205, 210, 248, 0.5) !important;
-  border: 1px solid rgba(175, 180, 242, 0.6) !important;
-}
-
-html.light .btn-primary {
-  background-color: var(--color-venus-600) !important;
-  color: white !important;
-}
-
-html.light .btn-primary:hover {
-  background-color: var(--color-venus-700) !important;
-}
-
-/* Light mode status badges for certifications */
-html.light .status-completed {
-  background-color: rgba(22, 163, 74, 0.15) !important;
-  color: #15803d !important;
-  border-color: rgba(22, 163, 74, 0.4) !important;
-}
-
-html.light .status-in-progress {
-  background-color: rgba(217, 119, 6, 0.15) !important;
-  color: #b45309 !important;
-  border-color: rgba(217, 119, 6, 0.4) !important;
-}
-
-html.light .clickable-bullet::before {
-  background-color: var(--color-venus-600) !important;
-}
-
-html.light .clickable-bullet:hover {
-  color: var(--color-venus-700) !important;
-  background-color: rgba(175, 180, 242, 0.3) !important;
-  border-radius: 0.5rem !important;
-}
-
-html.light .clickable-bullet:hover::before {
-  background-color: var(--color-accent) !important;
-}
-
 /* Hide particles in light mode */
-html.light .particle-background {
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-/* Project cards light mode */
-html.light .project-card {
-  background-color: #e4e7fb !important;
-}
-
-html.light .project-card-image {
-  background-color: #cdd2f8 !important;
-}
-
-/* View Transitions API - diagonal wipe animation from top to bottom */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  will-change: clip-path, opacity;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-::view-transition-old(root) {
-  z-index: 1;
-  animation-name: fadeOut;
-}
-
-::view-transition-new(root) {
-  z-index: 9999;
-  animation-name: wipeDownDiagonal;
-}
-
-@keyframes wipeDownDiagonal {
-  0% {
-    clip-path: inset(0 0 100% 0);
-  }
-  100% {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+.particle-background {
+  opacity: 0;
+  pointer-events: none;
 }

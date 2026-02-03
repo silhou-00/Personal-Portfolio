@@ -24,7 +24,7 @@ export default function Footer() {
               href="https://www.facebook.com/MathewBalanlay/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-secondary hover:text-venus-400 transition-colors"
+              className="text-text-secondary hover:text-shakespeare-400 transition-colors"
               aria-label="Facebook"
             >
               <svg
@@ -42,7 +42,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/mathew-14b703357/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-secondary hover:text-venus-400 transition-colors"
+              className="text-text-secondary hover:text-shakespeare-400 transition-colors"
               aria-label="LinkedIn"
             >
               <svg
@@ -60,7 +60,7 @@ export default function Footer() {
               href="https://github.com/silhou-00"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-secondary hover:text-venus-400 transition-colors"
+              className="text-text-secondary hover:text-shakespeare-400 transition-colors"
               aria-label="GitHub"
             >
               <svg
@@ -76,7 +76,7 @@ export default function Footer() {
             {/* Email */}
             <Link
               href="mailto:balanlaymathewangelo@gmail.com"
-              className="text-text-secondary hover:text-venus-400 transition-colors"
+              className="text-text-secondary hover:text-shakespeare-400 transition-colors"
               aria-label="Email"
             >
               <svg

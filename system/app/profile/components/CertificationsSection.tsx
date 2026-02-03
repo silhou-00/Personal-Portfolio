@@ -36,7 +36,7 @@ export default function CertificationsSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Web Development Certifications */}
           <div>
-            <h3 className="text-sm font-semibold text-venus-400 mb-4 uppercase tracking-wide">
+            <h3 className="text-sm font-semibold text-shakespeare-400 mb-4 uppercase tracking-wide">
               Web Development
             </h3>
             <div className="max-h-[300px] overflow-y-auto pr-2">
@@ -74,7 +74,7 @@ export default function CertificationsSection() {
 
           {/* Networking / Cybersecurity Certifications */}
           <div>
-            <h3 className="text-sm font-semibold text-venus-400 mb-4 uppercase tracking-wide">
+            <h3 className="text-sm font-semibold text-shakespeare-400 mb-4 uppercase tracking-wide">
               Networking / Cybersecurity
             </h3>
             {networkingCerts.length > 0 ? (

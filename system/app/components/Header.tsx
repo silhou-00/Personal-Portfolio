@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const pathname = usePathname();
@@ -25,16 +24,13 @@ export default function Header() {
                 className={`text-base font-semibold transition-colors duration-200 ${
                   pathname === link.href
                     ? 'text-text-primary'
-                    : 'text-venus-500 hover:text-text-primary'
+                    : 'text-shakespeare-500 hover:text-text-primary'
                 }`}
               >
                 {link.name}
               </Link>
             ))}
           </div>
-
-          {/* Theme Toggle */}
-          <ThemeToggle />
         </div>
       </nav>
     </header>

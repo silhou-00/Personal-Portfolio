@@ -118,7 +118,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-venus-400 hover:text-accent transition-colors"
+                className="inline-flex items-center gap-2 text-shakespeare-400 hover:text-accent transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +149,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                 href={project.links.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-venus-400 hover:text-accent transition-colors"
+                className="inline-flex items-center gap-2 text-shakespeare-400 hover:text-accent transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

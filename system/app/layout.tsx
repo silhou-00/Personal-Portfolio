@@ -5,7 +5,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 import SmoothScroll from './components/SmoothScroll';
-import { ThemeProvider } from './context/ThemeContext';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -23,11 +22,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mathew Portfolio",
     description: "This is my Portfolio.",
-    url: "https://mbalanlay-portfolio.vercel.app/", // Put your actual deployed link here
+    url: "https://mbalanlay-portfolio.vercel.app/",
     siteName: "Mathew Portfolio",
     images: [
       {
-        url: "/Profile.jpg", // The image in your public folder
+        url: "/Profile.jpg",
         width: 1200,
         height: 630,
         alt: "Mathew Angelo Balanlay Profile and Portfolio Preview",
@@ -37,12 +36,11 @@ export const metadata: Metadata = {
     type: "website",
   },
 
-  // Add Twitter Card (specifically for X/Twitter)
   twitter: {
-    card: "summary_large_image", // Makes the image big
+    card: "summary_large_image",
     title: "Mathew Portfolio",
     description: "This is my Portfolio.",
-    images: ["/Profile.jpg"], // Same image
+    images: ["/Profile.jpg"],
   },
 };
 
@@ -52,16 +50,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className="light">
       <body className={`${inter.variable} antialiased`}>
-        <ThemeProvider>
-          <SmoothScroll>
-            <ParticleBackground />
-            <Header />
-            <main className="content-wrapper">{children}</main>
-            <Footer />
-          </SmoothScroll>
-        </ThemeProvider>
+        <SmoothScroll>
+          <ParticleBackground />
+          <Header />
+          <main className="content-wrapper">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

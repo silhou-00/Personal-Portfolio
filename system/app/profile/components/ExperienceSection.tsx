@@ -34,7 +34,7 @@ export default function ExperienceSection() {
             onClick={() => setActiveFilter('work')}
             className={`flex-1 py-3 text-center font-medium transition-all ${
               activeFilter === 'work'
-                ? 'bg-venus-700 text-white'
+                ? 'bg-shakespeare-700 text-white'
                 : 'bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50'
             }`}
           >
@@ -44,7 +44,7 @@ export default function ExperienceSection() {
             onClick={() => setActiveFilter('education')}
             className={`flex-1 py-3 text-center font-medium transition-all ${
               activeFilter === 'education'
-                ? 'bg-venus-700 text-white'
+                ? 'bg-shakespeare-700 text-white'
                 : 'bg-transparent text-text-secondary hover:text-text-primary hover:bg-surface-elevated/50'
             }`}
           >
@@ -58,7 +58,7 @@ export default function ExperienceSection() {
             <div className="flex flex-col items-center justify-center h-full min-h-[350px] bg-background/30 rounded-lg border border-border/30">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-10 w-10 text-venus-600 mb-3"
+                className="h-10 w-10 text-shakespeare-600 mb-3"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -109,7 +109,7 @@ export default function ExperienceSection() {
                       <h4 className="text-base font-semibold text-text-primary">
                         {exp.organization}
                       </h4>
-                      <p className="text-sm text-venus-400 mb-2">{exp.role}</p>
+                      <p className="text-sm text-shakespeare-400 mb-2">{exp.role}</p>
                       <ul className="list-disc list-outside ml-4 text-text-secondary text-sm space-y-1">
                         <li>{exp.description}</li>
                       </ul>
