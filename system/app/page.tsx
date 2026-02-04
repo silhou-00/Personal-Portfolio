@@ -31,12 +31,7 @@ export default function Home() {
         onVisibilityChange={setSidebarVisible}
       />
       
-      {/* Main content wrapper - shifts when sidebar is visible on large screens */}
-      <div 
-        className={`transition-all duration-400 ease-out ${
-          sidebarVisible ? 'lg:pl-80' : ''
-        }`}
-      >
+      <div className="transition-all duration-400 ease-out">
         <HeroSection />
         <SkillsSection />
         <ExperienceSection />
