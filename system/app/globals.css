@@ -215,8 +215,6 @@ body {
 @media (min-width:1024px) {
   .section-container {
     padding: 4rem 2rem;
-    margin-left: 340px;
-    margin-right: auto;
   }
 }
 
@@ -236,8 +234,6 @@ body {
 @media (min-width:1024px) {
   .section-container-compact {
     padding: 2rem 2rem;
-    margin-left: 340px;
-    margin-right: auto;
   }
 }
 
@@ -541,11 +537,27 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 322px;
-  padding: 1.5rem 1.25rem;
+  width: 220px;
+  padding: 1rem 0.75rem;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-right: 1px solid rgba(158, 196, 219, 0.5);
   box-shadow: 4px 0 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Full email on one line on xl screens (1280px + ) */
+@media (min-width:1280px) {
+  .hero-sidebar {
+    width: 240px;
+    padding: 1.25rem 1rem;
+  }
+}
+
+/* More spacious on 2xl screens (1536px + ) */
+@media (min-width:1536px) {
+  .hero-sidebar {
+    width: 325px;
+    padding: 1.5rem 1.25rem;
+  }
 }

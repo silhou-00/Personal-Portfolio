@@ -112,7 +112,7 @@ export default function HeroSidebar({
         className={`fixed top-99.5 -translate-y-1/2 left-4 z-40 hidden lg:block ${animationClass}`}
         onAnimationEnd={handleAnimationEnd}
       >
-        <div className="hero-sidebar overflow-y-auto rounded-2xl shadow-xl">
+        <div className="hero-sidebar rounded-2xl shadow-xl">
           {/* Profile Picture */}
           <div className="flex justify-center mb-4">
             <div className="relative w-28 h-28 rounded-xl overflow-hidden border-2 border-shakespeare-700">
