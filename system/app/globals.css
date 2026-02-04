@@ -557,7 +557,7 @@ body {
 /* More spacious on 2xl screens (1536px + ) */
 @media (min-width:1536px) {
   .hero-sidebar {
-    width: 325px;
+    width: 245px;
     padding: 1.5rem 1.25rem;
   }
 }
