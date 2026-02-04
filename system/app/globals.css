@@ -215,6 +215,8 @@ body {
 @media (min-width:1024px) {
   .section-container {
     padding: 4rem 2rem;
+    margin-left: 340px;
+    margin-right: auto;
   }
 }
 
@@ -234,6 +236,8 @@ body {
 @media (min-width:1024px) {
   .section-container-compact {
     padding: 2rem 2rem;
+    margin-left: 340px;
+    margin-right: auto;
   }
 }
 

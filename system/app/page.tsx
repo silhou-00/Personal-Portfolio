@@ -31,7 +31,7 @@ export default function Home() {
         onVisibilityChange={setSidebarVisible}
       />
       
-      <div className="transition-all duration-400 ease-out">
+      <div className={`transition-all duration-400 ease-out `}>
         <HeroSection />
         <SkillsSection />
         <ExperienceSection />
