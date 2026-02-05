@@ -61,5 +61,14 @@
         "date": "2026",
         "logo": "/logo/ISC2Logo.png",
         "image": ["/certs/ISC2/DOMAIN2.jpg"]
+    },
+    {
+        "id": "cert_08",
+        "category": "networking",
+        "title": "CC: ACCESS CONTROL CONCEPTS",
+        "issuer": "ISC2",
+        "date": "2026",
+        "logo": "/logo/ISC2Logo.png",
+        "image": ["/certs/ISC2/DOMAIN3.jpg"]
     }
 ]
