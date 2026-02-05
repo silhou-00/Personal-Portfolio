@@ -56,7 +56,7 @@
     {
         "id": "cert_07",
         "category": "networking",
-        "title": "CC: IRP, DRP, and BCP",
+        "title": "CC: Incident Response, Disaster Recovery, and Business Continuity Planning",
         "issuer": "ISC2",
         "date": "2026",
         "logo": "/logo/ISC2Logo.png",
