@@ -47,7 +47,7 @@
     {
         "id": "cert_06",
         "category": "networking",
-        "title": "ISC2 Security Principles",
+        "title": "CC: Security Principles",
         "issuer": "ISC2",
         "date": "2026",
         "logo": "/logo/ISC2Logo.png",
@@ -56,7 +56,7 @@
     {
         "id": "cert_07",
         "category": "networking",
-        "title": "ISC2 IRP, DRP, and BCP",
+        "title": "CC: IRP, DRP, and BCP",
         "issuer": "ISC2",
         "date": "2026",
         "logo": "/logo/ISC2Logo.png",
