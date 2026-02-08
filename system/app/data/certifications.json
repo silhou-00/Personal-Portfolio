@@ -36,7 +36,7 @@
         "image": ["/certs/APNIC/APNIC.jpg"]
     },
     {
-        "id": "cert_06",
+        "id": "cert_05",
         "category": "networking",
         "title": "CC: Security Principles",
         "issuer": "ISC2",
