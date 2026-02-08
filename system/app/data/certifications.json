@@ -27,15 +27,6 @@
         "image": ["/certs/DATA_ANALYTICS/Data_Analytics.jpg"]
     },
     {
-        "id": "cert_04",
-        "category": "webdevelopment",
-        "title": "SHEisDEVCON: UXist",
-        "issuer": "DEVCON Cebu",
-        "date": "2025",
-        "logo": "/logo/DEVCONCebu.png",
-        "image": ["/certs/SHEisDEVCON/SheisDEVCON.jpg"]
-    },
-    {
         "id": "cert_05",
         "category": "networking",
         "title": "APNIC Foundation - Internet Resource Management",
