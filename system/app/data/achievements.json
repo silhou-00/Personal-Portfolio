@@ -8,6 +8,15 @@
     },
     {
         "id": "ach_02",
+        "category": "webdevelopment",
+        "title": "SHEisDEVCON: UXist",
+        "issuer": "DEVCON Cebu",
+        "date": "2025",
+        "logo": "/logo/DEVCONCebu.png",
+        "image": ["/certs/SHEisDEVCON/SheisDEVCON.jpg"]
+    },
+    {
+        "id": "ach_02",
         "title": "AWS Innovation Cup 2025",
         "date": "December 2025",
         "description": "Hackathon Champion, Well-Architected Builder, and Best Agora Solution.",
