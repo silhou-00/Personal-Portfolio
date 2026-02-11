@@ -69,6 +69,6 @@
         "issuer": "ISC2",
         "date": "2026",
         "logo": "/logo/ISC2Logo.png",
-        "image": [""]
+        "image": ["/certs/ISC2/DOMAIN4.jpg"]
     }
 ]
