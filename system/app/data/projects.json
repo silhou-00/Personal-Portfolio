@@ -97,5 +97,21 @@
             "/projects/MakatiHeritage/ISDNB.jpg",
             "/projects/MakatiHeritage/Team.jpg"
         ]
+    },
+    {
+        "id": "project_06",
+        "category": "webdevelopment",
+        "title": "Valentines 2026",
+        "shortDescription": "Lobotomy Corporation Inspired Showcasing",
+        "longDescription": "Lobotomy Corporation Inspired Showcasing",
+        "techStack": ["NextJS", "TailwindCSS"],
+        "links": 
+        {
+            "github": "https://github.com/silhou-00/valentines2026",
+            "demo": "https://valentines2026-beby.vercel.app/"
+        },
+        "image": [
+            ""
+        ]
     }
 ]
