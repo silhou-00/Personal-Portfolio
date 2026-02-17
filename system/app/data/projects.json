@@ -111,7 +111,9 @@
             "demo": "https://valentines2026-beby.vercel.app/"
         },
         "image": [
-            ""
+            "/projects/Valentines2026/LoadingPage.jpg",
+            "/projects/Valentines2026/MVP.jpg",
+            "/projects/Valentines2026/Information.jpg"
         ]
     }
 ]
