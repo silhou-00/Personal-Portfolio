@@ -105,7 +105,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
           {/* Tech Stack */}
           <div className="flex flex-wrap gap-2 mb-4">
             {project.techStack.map((tech, index) => (
-              <span key={index} className="tech-pill">
+              <span key={index} className="tech-pill select-none">
                 {tech}
               </span>
             ))}

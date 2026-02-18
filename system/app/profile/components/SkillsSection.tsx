@@ -25,7 +25,7 @@ export default function SkillsSection() {
   return (
     <section className="section-container-compact">
       <div className="glass-section p-6 sm:p-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 select-none">
           {/* Web Development Section */}
           <div>
             <h3 className="text-sm font-semibold text-shakespeare-400 mb-4 uppercase tracking-wide">
