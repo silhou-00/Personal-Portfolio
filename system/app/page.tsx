@@ -21,7 +21,7 @@ export default function Home() {
         aboutMe="Undergrad IT Student, Assembling DevSecOps Career"
         currentlyLearning={{
           label: 'Taking',
-          course: 'ISC2 Cybersecurity',
+          course: 'Coursera Cybersecurity',
           show: true,
         }}
         linkedIn="https://www.linkedin.com/in/mathew-14b703357/"
