@@ -34,5 +34,14 @@
         "date": "2023 - Present",
         "logo": "/experience/UMak_Logo.png",
         "description": "Currently attending the University of Makati for my Bachelor of Science in Information Technology. from Senior High School to College."
+    },
+    {
+        "id": 5,
+        "category": "work",
+        "role": "E:novators Ambassador",
+        "organization": "AWS User Group E:Novators Philippines",
+        "date": "2026 - Present",
+        "logo": "/experience/novators_logo.jpg",
+        "description": "An Ambassador Representing University of Makati."
     }
 ]
