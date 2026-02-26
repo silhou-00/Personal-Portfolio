@@ -59,6 +59,28 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Responsive Global Zoom Scaling */
+/* Standard laptop size */
+@media (max-width:1440px) {
+  html {
+    zoom: 75%;
+  }
+}
+
+/* Mid-range to high-res size (1920px base) */
+@media (min-width:1441px) and (max-width:1920px) {
+  html {
+    zoom: 100%;
+  }
+}
+
+/* Higher full-HD / ultra wide ( > 1920px) */
+@media (min-width:1921px) {
+  html {
+    zoom: 125%;
+  }
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--color-background);
@@ -538,8 +560,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 14rem; /* ~224px at 16px base, scales with zoom/DPI */
-  min-width: 10rem; /* Ensures content fits */
+  width: 14rem;
+  /* ~ 224px at 16px base, scales with zoom/DPI */
+  min-width: 10rem;
+  /* Ensures content fits */
   padding: 1rem 0.75rem;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
@@ -549,17 +573,19 @@ body {
 }
 
 /* Full email on one line on xl screens (80rem = 1280px at 100% scaling) */
-@media (min-width: 80rem) {
+@media (min-width:80rem) {
   .hero-sidebar {
-    width: 15.5rem; /* ~248px */
+    width: 15.5rem;
+    /* ~ 248px */
     padding: 1.25rem 1rem;
   }
 }
 
 /* More spacious on 2xl screens (96rem = 1536px at 100% scaling) */
-@media (min-width: 96rem) {
+@media (min-width:96rem) {
   .hero-sidebar {
-    width: 12rem; /* ~256px */
+    width: 12rem;
+    /* ~ 256px */
     padding: 1.5rem 1.25rem;
   }
 }
