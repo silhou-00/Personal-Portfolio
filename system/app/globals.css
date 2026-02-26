@@ -60,22 +60,22 @@ html {
 }
 
 /* Responsive Global Zoom Scaling */
-/* Standard laptop size */
-@media (max-width:1440px) {
+/* Standard laptop size & 1920x1080 monitors at 125% scaling (which outputs 1536px) */
+@media (max-width: 1600px) {
   body {
-    zoom: 85%;
+    zoom: 80%; /* 1536px / 0.8 = 1920px effective width */
   }
 }
 
-/* Mid-range to high-res size (1920px base) */
-@media (min-width:1441px) and (max-width:1920px) {
+/* Mid-range to high-res size (1920px at 100% scaling) */
+@media (min-width: 1601px) and (max-width: 1920px) {
   body {
     zoom: 100%;
   }
 }
 
-/* Higher full-HD / ultra wide ( > 1920px) */
-@media (min-width:1921px) {
+/* Higher full-HD / ultra wide (>1920px) */
+@media (min-width: 1921px) {
   body {
     zoom: 125%;
   }
