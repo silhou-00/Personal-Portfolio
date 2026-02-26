@@ -43,23 +43,5 @@
         "date": "2026",
         "logo": "/logo/ISC2Logo.png",
         "image": ["/certs/ISC2/DOMAIN1.jpg"]
-    },
-    {
-        "id": "cert_06",
-        "category": "networking",
-        "title": "CC: Incident Response, Disaster Recovery, and Business Continuity Planning",
-        "issuer": "ISC2",
-        "date": "2026",
-        "logo": "/logo/ISC2Logo.png",
-        "image": ["/certs/ISC2/DOMAIN2.jpg"]
-    },
-    {
-        "id": "cert_07",
-        "category": "networking",
-        "title": "CC: Access Control Concepts",
-        "issuer": "ISC2",
-        "date": "2026",
-        "logo": "/logo/ISC2Logo.png",
-        "image": ["/certs/ISC2/DOMAIN3.jpg"]
     }
 ]
