@@ -7,6 +7,7 @@ import QuickAccess from './components/QuickAccess';
 import FileGrid from './components/FileGrid';
 import PreviewPanel from './components/PreviewPanel';
 import ProjectModal from './components/ProjectModal';
+import HeroSidebar from '../components/HeroSidebar';
 
 interface Project {
   id: string;
@@ -121,6 +122,23 @@ export default function ProjectsPage() {
 
   return (
     <div className="h-screen bg-background pt-5 flex flex-col">
+      <HeroSidebar
+        name="Mathew Angelo T. Balanlay"
+        title="IT Student"
+        country="Philippines"
+        email="balanlaymathewangelo@gmail.com"
+        aboutMe="Undergrad IT Student, Assembling DevSecOps Career"
+        currentlyLearning={{
+          label: 'Taking',
+          course: 'Coursera Cybersecurity',
+          show: true,
+        }}
+        linkedIn="https://www.linkedin.com/in/mathew-14b703357/"
+        github="https://github.com/silhou-00"
+        facebook="https://www.facebook.com/MathewBalanlay/"
+        profileImage="/Profile.jpg"
+        alwaysVisible
+      />
       <div className="section-container flex-1 flex flex-col py-2">
         {/* File Explorer Container */}
         <div className="file-explorer bg-surface rounded-xl border border-border/40 overflow-hidden shadow-lg flex-1 flex flex-col">

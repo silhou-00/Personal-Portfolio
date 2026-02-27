@@ -39,6 +39,7 @@ interface HeroSidebarProps {
   facebook: string;
   profileImage: string;
   onVisibilityChange?: (isVisible: boolean) => void;
+  alwaysVisible?: boolean;
 }
 
 export default function HeroSidebar({
@@ -53,11 +54,17 @@ export default function HeroSidebar({
   facebook,
   profileImage,
   onVisibilityChange,
+  alwaysVisible = false,
 }: HeroSidebarProps) {
   const [animationState, setAnimationState] = useState<'hidden' | 'sliding-in' | 'visible' | 'sliding-out'>('hidden');
   const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
+    if (alwaysVisible) {
+      setAnimationState('visible');
+      return;
+    }
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       // Show sidebar after scrolling past hero section (roughly 500px)
@@ -77,7 +84,7 @@ export default function HeroSidebar({
     handleScroll(); // Initial check
     
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [alwaysVisible]);
 
   // Notify parent of visibility changes
   useEffect(() => {
