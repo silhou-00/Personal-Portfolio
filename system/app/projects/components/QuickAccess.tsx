@@ -15,7 +15,7 @@ export default function QuickAccess({ currentCategory, onCategoryClick, onRootCl
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="quick-access-sidebar w-44 shrink-0 border-r border-border/40 bg-surface/50 overflow-y-auto">
+    <div className="quick-access-sidebar w-44 shrink-0 border-r border-border/40 bg-surface/50 overflow-y-auto h-full">
       {/* My Projects header — collapsible */}
       <button
         onClick={() => setIsOpen(!isOpen)}
