@@ -23,7 +23,7 @@ interface PreviewPanelProps {
 export default function PreviewPanel({ project, folderInfo, onViewFull }: PreviewPanelProps) {
   if (!project && !folderInfo) {
     return (
-      <div className="preview-panel w-75 shrink-0 border-l border-border/40 p-4 flex flex-col items-center justify-center h-full">
+      <div className="preview-panel w-72 shrink-0 border-l border-border/40 p-4 flex flex-col items-center justify-center h-full">
         <Image src="/folder_icon.svg" alt="" width={64} height={64} className="opacity-40 mb-3" />
         <p className="text-text-muted text-sm text-center">Select a file to preview</p>
       </div>

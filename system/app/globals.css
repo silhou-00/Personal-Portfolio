@@ -600,22 +600,27 @@ body {
 }
 
 /* Cap the file explorer height on very large screens */
-@media (min-width: 2000px) {
+@media (min-width:2000px) {
   .file-explorer {
     max-height: 70vh;
   }
-
+  
   /* Prevent the page from stretching to full screen height */
   .section-container:has(.file-explorer) {
     flex: none;
   }
 }
 
-/* Widen the section-container when it holds the file explorer */
-.section-container:has(.file-explorer) {
-  max-width: 1600px !important;
-  margin-left: 15rem;
-  margin-right: auto;
+/* Widen the section-container when it holds the file explorer — only on desktop where sidebar is visible */
+@media (min-width: 1025px) {
+  .section-container:has(.file-explorer) {
+    max-width: none !important;
+    width: calc(100% - 17rem) !important;
+    margin-left: 15rem !important;
+    margin-right: 0 !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 }
 
 .file-explorer .quick-access-sidebar {
