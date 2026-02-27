@@ -120,7 +120,7 @@ export default function ProjectsPage() {
       : null;
 
   return (
-    <div className="h-screen bg-background pt-16 pb-2 flex flex-col">
+    <div className="h-screen bg-background pt-5 flex flex-col">
       <div className="section-container flex-1 flex flex-col py-2">
         {/* File Explorer Container */}
         <div className="file-explorer bg-surface rounded-xl border border-border/40 overflow-hidden shadow-lg flex-1 flex flex-col">
