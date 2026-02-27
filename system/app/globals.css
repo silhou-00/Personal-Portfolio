@@ -599,6 +599,25 @@ body {
   background-color: var(--color-surface);
 }
 
+/* Cap the file explorer height on very large screens */
+@media (min-width: 2000px) {
+  .file-explorer {
+    max-height: 70vh;
+  }
+
+  /* Prevent the page from stretching to full screen height */
+  .section-container:has(.file-explorer) {
+    flex: none;
+  }
+}
+
+/* Widen the section-container when it holds the file explorer */
+.section-container:has(.file-explorer) {
+  max-width: 1600px !important;
+  margin-left: 15rem;
+  margin-right: auto;
+}
+
 .file-explorer .quick-access-sidebar {
   background-color: color-mix(in srgb, var(--color-surface) 85%, var(--color-surface-elevated));
 }
