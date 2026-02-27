@@ -596,6 +596,15 @@ body {
 /* File Explorer Container */
 .file-explorer {
   min-height: 70vh;
+  background-color: var(--color-surface);
+}
+
+.file-explorer .quick-access-sidebar {
+  background-color: color-mix(in srgb, var(--color-surface) 85%, var(--color-surface-elevated));
+}
+
+.file-explorer .preview-panel {
+  background-color: color-mix(in srgb, var(--color-surface) 85%, var(--color-surface-elevated));
 }
 
 /* Quick Access Sidebar */

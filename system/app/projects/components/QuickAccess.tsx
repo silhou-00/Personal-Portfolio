@@ -15,7 +15,7 @@ export default function QuickAccess({ currentCategory, onCategoryClick, onRootCl
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="quick-access-sidebar w-44 shrink-0 border-r border-border/40 bg-surface/50 overflow-y-auto h-full">
+    <div className="quick-access-sidebar w-44 shrink-0 border-r border-border/40 overflow-y-auto h-full">
       {/* My Projects header — collapsible */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -31,7 +31,7 @@ export default function QuickAccess({ currentCategory, onCategoryClick, onRootCl
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
-        <Image src="/folder_icon.svg" alt="" width={16} height={16} />
+        <Image src="/drive_icon.svg" alt="" width={16} height={16} />
         <span>My Projects</span>
       </button>
 

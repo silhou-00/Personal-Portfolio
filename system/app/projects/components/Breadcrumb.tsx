@@ -56,7 +56,7 @@ export default function Breadcrumb({ path, onNavigate, onBack, onForward, canGoB
               }`}
             >
               {index === 0 && (
-                <Image src="/folder_icon.svg" alt="" width={14} height={14} className="shrink-0" />
+                <Image src="/drive_icon.svg" alt="" width={14} height={14} className="shrink-0" />
               )}
               {segment}
             </button>
