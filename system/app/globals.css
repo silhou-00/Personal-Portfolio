@@ -612,7 +612,7 @@ body {
 }
 
 /* Widen the section-container when it holds the file explorer — only on desktop where sidebar is visible */
-@media (min-width: 1025px) {
+@media (min-width:1025px) {
   .section-container:has(.file-explorer) {
     max-width: none !important;
     width: calc(100% - 17rem) !important;
@@ -620,6 +620,13 @@ body {
     margin-right: 0 !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+  }
+}
+
+/* Add top padding on mobile/tablet where there's no sidebar */
+@media (max-width:1024px) {
+  .section-container:has(.file-explorer) {
+    padding-top: 4.5rem !important;
   }
 }
 
