@@ -61,21 +61,22 @@ html {
 
 /* Responsive Global Zoom Scaling */
 /* Standard laptop size & 1920x1080 monitors at 125% scaling (which outputs 1536px) */
-@media (max-width: 1600px) {
+@media (max-width:1600px) {
   body {
-    zoom: 80%; /* 1536px / 0.8 = 1920px effective width */
+    zoom: 80%;
+    /* 1536px / 0.8 = 1920px effective width */
   }
 }
 
 /* Mid-range to high-res size (1920px at 100% scaling) */
-@media (min-width: 1601px) and (max-width: 1920px) {
+@media (min-width:1601px) and (max-width:1920px) {
   body {
     zoom: 100%;
   }
 }
 
-/* Higher full-HD / ultra wide (>1920px) */
-@media (min-width: 1921px) {
+/* Higher full-HD / ultra wide ( > 1920px) */
+@media (min-width:1921px) {
   body {
     zoom: 125%;
   }
@@ -588,4 +589,48 @@ body {
     /* ~ 256px */
     padding: 1.5rem 1.25rem;
   }
+}
+
+/* ===== File Explorer Styles ===== */
+
+/* File Explorer Container */
+.file-explorer {
+  min-height: 70vh;
+}
+
+/* Quick Access Sidebar */
+.quick-access-sidebar {
+  scrollbar-width: none;
+}
+
+.quick-access-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* File Grid Items */
+.file-grid-item {
+  min-height: 5.5rem;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.file-grid-item:hover {
+  border-color: rgba(158, 196, 219, 0.3);
+  background-color: rgba(69, 140, 177, 0.08);
+}
+
+/* Preview Panel */
+.preview-panel {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-shakespeare-600) transparent;
+}
+
+/* Breadcrumb segment */
+.breadcrumb-segment {
+  user-select: none;
+  cursor: pointer;
+}
+
+.breadcrumb-segment:hover {
+  text-decoration: none;
 }

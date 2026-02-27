@@ -1,7 +1,7 @@
 [
     {
         "id": "project_01",
-        "category": "webdevelopment",
+        "category": "University",
         "title": "GabayTek",
         "shortDescription": "A Structured Course Platform Powered by AI Assistant",
         "longDescription": "GabayTek is a Project-Based Learning (PBL) System  that offers a structured course platform that empowers students with AI-powered assistance. And a seamless learning experience, personalized guidance, and efficient management of course content.",
@@ -21,7 +21,7 @@
     },
     {
         "id": "project_02",
-        "category": "webdevelopment",
+        "category": "Personal",
         "title": "Anchor",
         "shortDescription": "First Personal Project",
         "longDescription": "Anchor is a Project that tracks the user's income and daily expenses to help them manage their finances better.",
@@ -41,7 +41,7 @@
     },
     {
         "id": "project_03",
-        "category": "webdevelopment",
+        "category": "Hackathon",
         "title": "MemoriA",
         "shortDescription": "A Hackathon Project",
         "longDescription": "MemoriA is a simulated system for dementia patients that simulates a smart glass that can help the patient detect who the person is in front of them and provide information about the person with a voice assistant powered by AGORA.",
@@ -60,7 +60,7 @@
     },
     {
         "id": "project_04",
-        "category": "webdevelopment",
+        "category": "Hackathon",
         "title": "Project Hinga",
         "shortDescription": "A Hackathon Project",
         "longDescription": "Project Hinga is a simulated system for tubercolosis patients that simulates a future-proof feature for using a stethoscope-like for your smartphone to help the patient give daily reports to their doctor without having to go to the hospital.",
@@ -80,7 +80,7 @@
     },
     {
         "id": "project_05",
-        "category": "webdevelopment",
+        "category": "University",
         "title": "Makati Heritage Web Portal",
         "shortDescription": "A Static Website detailing Makati City",
         "longDescription": "The web portal is a project for the ISDNB in the University of Makati. It details all the heritage sites in Makati City.",
@@ -100,7 +100,7 @@
     },
     {
         "id": "project_06",
-        "category": "webdevelopment",
+        "category": "Personal",
         "title": "Valentines 2026",
         "shortDescription": "Lobotomy Corporation Inspired Showcasing",
         "longDescription": "Lobotomy Corporation Inspired Showcasing for Valentines 2026",
