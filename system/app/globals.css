@@ -627,6 +627,7 @@ body {
 @media (max-width:1024px) {
   .section-container:has(.file-explorer) {
     padding-top: 4.5rem !important;
+    width: 25rem !important;
   }
 }
 
