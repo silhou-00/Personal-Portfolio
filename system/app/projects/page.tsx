@@ -130,7 +130,7 @@ export default function ProjectsPage() {
         aboutMe="Undergrad IT Student, Assembling DevSecOps Career"
         currentlyLearning={{
           label: 'Taking',
-          course: 'Coursera Cybersecurity',
+          course: 'Coursera Google Cybersecurity',
           show: true,
         }}
         linkedIn="https://www.linkedin.com/in/mathew-14b703357/"
