@@ -41,21 +41,40 @@ export default function FileGrid({ folders, files, selectedFileId, onFolderClick
         </div>
       )}
 
-      {/* Files (projects) */}
+      {/* Files (projects) — card view */}
       {files && files.length > 0 && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3">
           {files.map((project) => (
             <button
               key={project.id}
               onClick={() => onFileClick(project)}
-              className={`file-grid-item group flex flex-col items-center gap-2 p-4 rounded-lg transition-all cursor-pointer select-none ${
+              className={`group flex flex-col rounded-xl overflow-hidden border transition-all cursor-pointer select-none text-left ${
                 selectedFileId === project.id
-                  ? 'bg-shakespeare-700/15 ring-1 ring-shakespeare-700/40'
-                  : 'hover:bg-shakespeare-700/10'
+                  ? 'border-shakespeare-600/60 ring-2 ring-shakespeare-600/30 shadow-md'
+                  : 'border-border/40 hover:border-shakespeare-500/50 hover:shadow-md hover:-translate-y-0.5'
               }`}
             >
-              <Image src="/file_icon.svg" alt="" width={48} height={48} className="group-hover:scale-110 transition-transform" />
-              <span className="text-xs text-text-primary font-medium text-center leading-tight line-clamp-2">{project.title}</span>
+              {/* Thumbnail */}
+              <div className="relative w-full aspect-video bg-surface-elevated overflow-hidden">
+                {project.image && project.image.length > 0 ? (
+                  <Image
+                    src={project.image[0]}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                ) : (
+                  <div className="flex items-center justify-center h-full">
+                    <Image src="/file_icon.svg" alt="" width={40} height={40} className="opacity-40" />
+                  </div>
+                )}
+              </div>
+
+              {/* Card body */}
+              <div className="p-3 bg-surface/80 flex flex-col gap-0.5">
+                <span className="text-sm font-semibold text-text-primary leading-tight line-clamp-1">{project.title}</span>
+                <span className="text-xs text-text-muted leading-snug line-clamp-2">{project.shortDescription}</span>
+              </div>
             </button>
           ))}
         </div>
