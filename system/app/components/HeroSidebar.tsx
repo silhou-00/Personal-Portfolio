@@ -168,7 +168,7 @@ export default function HeroSidebar({
           {/* Currently Learning */}
           {currentlyLearning?.show && (
             <div className="flex justify-center mb-4">
-              <span className="currently-studying-pill text-[5px] px-2 py-0.5 gap-1 w-44 h-13">
+              <span className="currently-studying-pill text-[10px] px-3 py-2 gap-1.5 w-44">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-3 h-3"
