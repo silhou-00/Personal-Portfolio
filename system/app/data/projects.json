@@ -1,12 +1,26 @@
 [
     {
+        "id": "project_00",
+        "category": "Professional",
+        "title": "SecureFlow",
+        "shortDescription": "Hybrid ISMS Document Management Architecture",
+        "longDescription": "SecureFlow is an ISO 27001-aligned document management system (Next.js, FastAPI, Supabase) with versioning, multi-step approvals, and classification-based RBAC. Secured with domain-locked Google OAuth and TOTP MFA enforced at the middleware, and containerized with Docker Compose behind IIS on Windows Server, with automated firewall changes and Active Directory sync via Ansible + WinRM.",
+        "techStack": ["Next.js", "FastAPI", "Supabase", "Docker Compose", "IIS", "Ansible", "WinRM"],
+        "links":
+        {
+            "github": "Private",
+            "demo": "Private"
+        },
+        "image": []
+    },
+    {
         "id": "project_01",
         "category": "University",
         "title": "GabayTek",
-        "shortDescription": "A Structured Course Platform Powered by AI Assistant",
-        "longDescription": "GabayTek is a Project-Based Learning (PBL) System  that offers a structured course platform that empowers students with AI-powered assistance. And a seamless learning experience, personalized guidance, and efficient management of course content.",
-        "techStack": ["React", "Electron-Vite", "Tailwind CSS", "Python", "Flask", "Supabase", "QDrant"],
-        "links": 
+        "shortDescription": "A Structured Course Platform Enhanced by an AI-Learning Assistant",
+        "longDescription": "GabayTek is a cross-platform Electron + React desktop app with a bundled Flask backend. It uses dual auth (local JWT plus Supabase OAuth) with RBAC, and serves AI recommendation and learning-style assessment endpoints powered by Gemini 2.5 Pro. Build and release are fully automated: PyInstaller backend packaging, electron-builder multi-OS installers, and electron-updater auto-updates.",
+        "techStack": ["Electron-Vite", "React", "Tailwind CSS", "Python", "Flask", "Supabase", "Gemini 2.5 Pro", "QDrant"],
+        "links":
         {
             "github": "Private",
             "demo": "https://gabaytek-landingpage.vercel.app/"
@@ -26,7 +40,7 @@
         "shortDescription": "First Personal Project",
         "longDescription": "Anchor is a Project that tracks the user's income and daily expenses to help them manage their finances better.",
         "techStack": ["React-Vite", "Tailwind CSS", "Node.js", "Supabase"],
-        "links": 
+        "links":
         {
             "github": "Private",
             "demo": "https://audit-anchor.vercel.app/"
@@ -46,7 +60,7 @@
         "shortDescription": "A Hackathon Project",
         "longDescription": "MemoriA is a simulated system for dementia patients that simulates a smart glass that can help the patient detect who the person is in front of them and provide information about the person with a voice assistant powered by AGORA.",
         "techStack": ["Next.js", "Tailwind CSS", "Node.js", "Supabase"],
-        "links": 
+        "links":
         {
             "github": "Private",
             "demo": "Private"
@@ -65,7 +79,7 @@
         "shortDescription": "A Hackathon Project",
         "longDescription": "Project Hinga is a simulated system for tubercolosis patients that simulates a future-proof feature for using a stethoscope-like for your smartphone to help the patient give daily reports to their doctor without having to go to the hospital.",
         "techStack": ["React-Vite", "Tailwind CSS", "Python", "Flask", "Supabase"],
-        "links": 
+        "links":
         {
             "github": "Private",
             "demo": "Private"
@@ -85,7 +99,7 @@
         "shortDescription": "A Static Website detailing Makati City",
         "longDescription": "The web portal is a project for the ISDNB in the University of Makati. It details all the heritage sites in Makati City.",
         "techStack": ["HTML", "CSS"],
-        "links": 
+        "links":
         {
             "github": "Unknown",
             "demo": "https://makatiheritagewebportal.vercel.app/"
@@ -105,7 +119,7 @@
         "shortDescription": "Lobotomy Corporation Inspired Showcasing",
         "longDescription": "Lobotomy Corporation Inspired Showcasing for Valentines 2026",
         "techStack": ["NextJS", "TailwindCSS"],
-        "links": 
+        "links":
         {
             "github": "https://github.com/silhou-00/valentines2026",
             "demo": "https://valentines2026-beby.vercel.app/"

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 
 interface ImageModalProps {
@@ -9,6 +9,7 @@ interface ImageModalProps {
   images: string[];
   title: string;
   description?: string;
+  initialIndex?: number;
 }
 
 export default function ImageModal({
@@ -17,6 +18,7 @@ export default function ImageModal({
   images,
   title,
   description,
+  initialIndex = 0,
 }: ImageModalProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isClosing, setIsClosing] = useState(false);
@@ -25,14 +27,20 @@ export default function ImageModal({
   // Filter out empty image strings
   const validImages = images.filter((img) => img && img.trim() !== '');
 
-  // Handle open/close states with animation
-  useEffect(() => {
+  // Handle open/close states with animation (state adjusted during render)
+  const [prevOpen, setPrevOpen] = useState(false);
+  if (isOpen !== prevOpen) {
+    setPrevOpen(isOpen);
     if (isOpen) {
       setShouldRender(true);
       setIsClosing(false);
-      setCurrentIndex(0);
+      setCurrentIndex(
+        initialIndex >= 0 && initialIndex < validImages.length
+          ? initialIndex
+          : 0
+      );
     }
-  }, [isOpen]);
+  }
 
   const handleClose = () => {
     setIsClosing(true);
@@ -63,11 +71,11 @@ export default function ImageModal({
       className={`modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 ${isClosing ? 'animate-backdrop-close' : ''}`}
       onClick={handleBackdropClick}
     >
-      <div className={`relative w-full max-w-4xl max-h-[90vh] bg-surface rounded-xl overflow-hidden ${isClosing ? 'animate-modal-close' : 'animate-modal-open'}`}>
+      <div className={`relative w-full max-w-6xl max-h-[92vh] bg-paper border-[1.5px] border-ink overflow-hidden ${isClosing ? 'animate-modal-close' : 'animate-modal-open'}`}>
         {/* Close button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+          className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center border-[1.5px] border-ink bg-paper/90 text-ink hover:bg-ink hover:text-paper transition-colors"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -87,19 +95,21 @@ export default function ImageModal({
 
         {/* Content */}
         <div className="p-6">
-          <h3 className="text-xl font-semibold text-text-primary mb-2">
+          <h3 className="text-xl font-bold text-text-primary mb-1 pr-12">
             {title}
           </h3>
           {description && (
-            <p className="text-text-secondary text-sm mb-4">{description}</p>
+            <p className="font-mono text-xs text-text-muted mb-4">
+              {description}
+            </p>
           )}
 
           {/* Image carousel */}
           {validImages.length > 0 ? (
             <div className="relative">
-              <div 
+              <div
                 key={currentIndex}
-                className="aspect-video relative rounded-lg overflow-hidden bg-background animate-carousel-fade"
+                className="aspect-video relative overflow-hidden bg-panel border border-ink/25 animate-carousel-fade"
               >
                 <Image
                   src={validImages[currentIndex]}
@@ -157,14 +167,16 @@ export default function ImageModal({
 
               {/* Image counter */}
               {validImages.length > 1 && (
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 px-3 py-1 rounded-full text-sm text-white">
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-paper/90 border border-ink px-3 py-1 font-mono text-xs text-ink">
                   {currentIndex + 1} / {validImages.length}
                 </div>
               )}
             </div>
           ) : (
-            <div className="aspect-video flex items-center justify-center bg-background rounded-lg">
-              <p className="text-text-muted">No images available</p>
+            <div className="aspect-video flex items-center justify-center bg-panel border border-ink/25">
+              <p className="font-mono text-sm text-text-muted">
+                no images available
+              </p>
             </div>
           )}
         </div>

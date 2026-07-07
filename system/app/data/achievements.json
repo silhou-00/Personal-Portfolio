@@ -1,25 +1,12 @@
 [
     {
-        "id": "ach_01",
-        "title": "SHEisDEVCON Cebu: UXist",
-        "date": "March 2025",
-        "image": ["/certs/SHEisDEVCON/SheisDEVCON.jpg"]
-    },
-    {
-        "id": "ach_02",
-        "title": "Breaking Enigma 2025",
-        "date": "November 2025",
-        "description": "Part of the Top 30 who got into the Hackathon.",
-        "image": ["/achievements/DTI_Hackathon/Cert.png", "/achievements/DTI_Hackathon/DTI_First.jpg"]
-    },
-    {
         "id": "ach_03",
         "title": "AWS Innovation Cup 2025",
         "date": "December 2025",
         "description": "Hackathon Champion, Well-Architected Builder, and Best Agora Solution.",
-        "image": ["/achievements/AWS_Hackathon/Whole_Team.jpg", 
-        "/achievements/AWS_Hackathon/Champion.jpg", 
-        "/achievements/AWS_Hackathon/Well-ArchBuild.jpg", 
+        "image": ["/achievements/AWS_Hackathon/Whole_Team.jpg",
+        "/achievements/AWS_Hackathon/Champion.jpg",
+        "/achievements/AWS_Hackathon/Well-ArchBuild.jpg",
         "/achievements/AWS_Hackathon/Best_Agora_Solution.jpg"]
     },
     {
@@ -35,5 +22,19 @@
         "date": "December 2025",
         "description": "24 Days Beginner-Friendly Cybersecurity Challenges.",
         "image": ["/achievements/AdventOfCyber/AdventofCyberPreview.jpg"]
+    },
+    {
+        "id": "ach_02",
+        "title": "Breaking Enigma 2025",
+        "date": "November 2025",
+        "description": "Part of the Top 30 who got into the Hackathon.",
+        "image": ["/achievements/DTI_Hackathon/Cert.png", "/achievements/DTI_Hackathon/DTI_First.jpg"]
+    },
+    {
+        "id": "ach_01",
+        "title": "SHEisDEVCON Cebu",
+        "date": "March 2025",
+        "description": "UXist recognition.",
+        "image": ["/certs/SHEisDEVCON/SheisDEVCON.jpg"]
     }
 ]

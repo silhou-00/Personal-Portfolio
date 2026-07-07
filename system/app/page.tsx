@@ -1,43 +1,27 @@
-'use client';
-
-import { useState } from 'react';
-import HeroSection from './profile/components/HeroSection';
-import SkillsSection from './profile/components/SkillsSection';
-import ExperienceSection from './profile/components/ExperienceSection';
-import CertificationsSection from './profile/components/CertificationsSection';
-import AchievementsSection from './profile/components/AchievementsSection';
-import HeroSidebar from './components/HeroSidebar';
+import Nav from './components/Nav';
+import Hero from './components/Hero';
+import Summary from './components/Summary';
+import ExperienceList from './components/ExperienceList';
+import ProjectsGrid from './components/ProjectsGrid';
+import Wins from './components/Wins';
+import Proof from './components/Proof';
+import PingMe from './components/PingMe';
+import ScrollFx from './components/ScrollFx';
 
 export default function Home() {
-  const [sidebarVisible, setSidebarVisible] = useState(false);
-
   return (
-    <div className="min-h-screen overflow-x-hidden">
-      <HeroSidebar
-        name="Mathew Angelo T. Balanlay"
-        title="IT Student"
-        country="Philippines"
-        email="balanlaymathewangelo@gmail.com"
-        aboutMe="Undergrad IT Student, Assembling DevSecOps Career"
-        currentlyLearning={{
-          label: 'Taking',
-          course: 'Coursera Cybersecurity',
-          show: true,
-        }}
-        linkedIn="https://www.linkedin.com/in/mathew-14b703357/"
-        github="https://github.com/silhou-00"
-        facebook="https://www.facebook.com/MathewBalanlay/"
-        profileImage="/Profile.jpg"
-        onVisibilityChange={setSidebarVisible}
-      />
-      
-      <div className={`transition-all duration-400 ease-out `}>
-        <HeroSection />
-        <SkillsSection />
-        <ExperienceSection />
-        <CertificationsSection />
-        <AchievementsSection />
+    <>
+      <Nav />
+      <div className="page-col">
+        <Hero />
+        <Summary />
+        <ExperienceList />
+        <ProjectsGrid />
+        <Wins />
+        <Proof />
+        <PingMe />
       </div>
-    </div>
+      <ScrollFx />
+    </>
   );
 }
