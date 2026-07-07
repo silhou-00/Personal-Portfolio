@@ -3,6 +3,12 @@
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 
+declare global {
+  interface Window {
+    __lenis?: Lenis;
+  }
+}
+
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
 
@@ -24,6 +30,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       },
     });
 
+    // Expose for programmatic anchor scrolling (nav links)
+    window.__lenis = lenisRef.current;
+
     // Animation frame loop
     function raf(time: number) {
       lenisRef.current?.raf(time);
@@ -35,6 +44,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     // Cleanup
     return () => {
       lenisRef.current?.destroy();
+      delete window.__lenis;
     };
   }, []);
 

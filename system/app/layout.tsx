@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, IBM_Plex_Mono, Archivo_Black } from 'next/font/google';
 import './globals.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ParticleBackground from './components/ParticleBackground';
 import SmoothScroll from './components/SmoothScroll';
 
 const inter = Inter({
@@ -11,36 +8,50 @@ const inter = Inter({
   subsets: ['latin'],
 });
 
+const plexMono = IBM_Plex_Mono({
+  variable: '--font-plex-mono',
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+});
+
+const archivo = Archivo_Black({
+  variable: '--font-archivo',
+  subsets: ['latin'],
+  weight: '400',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://mbalanlay-portfolio.vercel.app'),
-  title: 'Mathew Portfolio',
+  title: 'Mathew Balanlay · Assembling DevSecOps Engineer',
   description:
-    'Personal portfolio showcasing projects, skills, and experiences as an IT Student from the Philippines.',
-  keywords: ['portfolio', 'IT', 'web development', 'student', 'Philippines'],
+    'Assembling a DevSecOps career at the University of Makati, automating workflows and pipelines so teams ship faster without sacrificing security.',
+  keywords: ['DevSecOps', 'DevOps', 'CI/CD', 'portfolio', 'IT', 'Philippines'],
   authors: [{ name: 'Mathew Angelo Balanlay' }],
 
   openGraph: {
-    title: "Mathew Portfolio",
-    description: "This is my Portfolio.",
-    url: "https://mbalanlay-portfolio.vercel.app/",
-    siteName: "Mathew Portfolio",
+    title: 'Mathew Balanlay · Assembling DevSecOps Engineer',
+    description:
+      'Automating workflows and pipelines so teams ship faster without sacrificing security.',
+    url: 'https://mbalanlay-portfolio.vercel.app/',
+    siteName: 'Mathew Balanlay Portfolio',
     images: [
       {
-        url: "/Profile.jpg",
+        url: '/Profile.jpg',
         width: 1200,
         height: 630,
-        alt: "Mathew Angelo Balanlay Profile and Portfolio Preview",
+        alt: 'Mathew Angelo Balanlay Profile and Portfolio Preview',
       },
     ],
-    locale: "en_US",
-    type: "website",
+    locale: 'en_US',
+    type: 'website',
   },
 
   twitter: {
-    card: "summary_large_image",
-    title: "Mathew Portfolio",
-    description: "This is my Portfolio.",
-    images: ["/Profile.jpg"],
+    card: 'summary_large_image',
+    title: 'Mathew Balanlay · Assembling DevSecOps Engineer',
+    description:
+      'Automating workflows and pipelines so teams ship faster without sacrificing security.',
+    images: ['/Profile.jpg'],
   },
 };
 
@@ -50,13 +61,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light">
-      <body className={`${inter.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${plexMono.variable} ${archivo.variable}`}
+    >
+      <body className="antialiased">
         <SmoothScroll>
-          <ParticleBackground />
-          <Header />
-          <main className="content-wrapper">{children}</main>
-          <Footer />
+          <main>{children}</main>
         </SmoothScroll>
       </body>
     </html>

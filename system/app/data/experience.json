@@ -1,47 +1,94 @@
-[
-    {
-        "id": 1,
-        "category": "education",
-        "role": "Web Development Team Head",
-        "organization": "University of Makati",
-        "date": "November 2024 - June 2025",
-        "logo": "/experience/UMak_Logo.png",
-        "description": "Architected, and Integrated the System Makati Heritage Web Portal for the Institute for Social Development and Nation Building in the University of Makati."
-    },
-    {
-        "id": 2,
-        "category": "education",
-        "role": "Leader & Portfolio Manager",
-        "organization": "University of Makati",
-        "date": "November 2024 - June 2025",
-        "logo": "/experience/UMak_Logo.png",
-        "description": "Documented, Developed, Architected, and Integrated the Project-Based Learning (PBL) System Havencrest: Clinic Appointment System."
-    },
-    {
-        "id": 3,
-        "category": "education",
-        "role": "Project Manager & Lead Programmer",
-        "organization": "University of Makati",
-        "date": "August 2025 - December 2025",
-        "logo": "/experience/UMak_Logo.png",
-        "description": "Developed, Architected, and Integrated the Project-Based Learning (PBL) System GabayTek: A Structured Course Platform for the University of Makati."
-    },
-    {
-        "id": 4,
-        "category": "education",
-        "role": "BS Information Technology",
-        "organization": "University of Makati",
-        "date": "2023 - Present",
-        "logo": "/experience/UMak_Logo.png",
-        "description": "Currently attending the University of Makati for my Bachelor of Science in Information Technology. from Senior High School to College."
-    },
-    {
-        "id": 5,
-        "category": "work",
-        "role": "E:novators Ambassador",
-        "organization": "AWS User Group E:Novators Philippines",
-        "date": "2026 - Present",
-        "logo": "/experience/novators_logo.jpg",
-        "description": "An Ambassador Representing University of Makati."
-    }
-]
+{
+    "work": [
+        {
+            "id": "work_01",
+            "period": "2026 – now",
+            "status": "active",
+            "role": "Full-Stack Developer Intern",
+            "organization": "Tutorials Dojo · fundr studios",
+            "logo": null,
+            "monogram": "TD",
+            "points": [
+                "Desku: led development of a local-first productivity app for virtual assistants (React Native · Expo · SQLite) with offline-first, account-free storage, device-bound identity, RevenueCat subscription tiers, and on-device CSV backup plus PDF invoice and report generation.",
+                "Inki: co-developed a privacy-first reading and book-tracking app that reached #1 in Books on the Philippine App Store (5.0★), with barcode/ISBN scanning, OCR quote capture, and author and genre-based recommendations."
+            ]
+        },
+        {
+            "id": "work_02",
+            "period": "2026 – now",
+            "status": "active",
+            "role": "DevOps Engineer",
+            "organization": "iSkolar",
+            "logo": null,
+            "monogram": "iS",
+            "points": [
+                "CI/CD pipeline automation covering build, test, and deployment workflows with security gates for status checks and error handling, plus a tracking system for tasks and pipeline status.",
+                "iSkolar-Academy development and production builds: React/TanStack frontend, Hono/Node API, multi-stage Docker deployment."
+            ]
+        },
+        {
+            "id": "work_03",
+            "period": "2026 – now",
+            "status": "active",
+            "role": "E:novators Ambassador",
+            "organization": "AWS User Group E:novators Philippines",
+            "logo": "/experience/novators_logo.jpg",
+            "monogram": "EN",
+            "points": [
+                "Representing the University of Makati in the AWS community."
+            ]
+        }
+    ],
+    "education": [
+        {
+            "id": "edu_01",
+            "period": "2023 – now",
+            "status": "active",
+            "role": "BS Information Technology",
+            "organization": "University of Makati",
+            "logo": "/experience/UMak_Logo.png",
+            "monogram": "UM",
+            "points": [
+                "Bachelor of Science in Information Technology, expected 2027."
+            ]
+        },
+        {
+            "id": "edu_02",
+            "period": "Aug – Dec 2025",
+            "status": "done",
+            "role": "Project Manager & Lead Programmer",
+            "organization": "University of Makati",
+            "logo": "/experience/UMak_Logo.png",
+            "monogram": "UM",
+            "points": [
+                "GabayTek: built a structured course platform (PBL) as a cross-platform Electron + React desktop app with a bundled Flask backend, using dual auth (local JWT + Supabase OAuth) and RBAC.",
+                "Built AI recommendation and learning-style assessment endpoints (Gemini 2.5 Pro).",
+                "Automated build/release: PyInstaller backend packaging, electron-builder multi-OS installers, and electron-updater auto-updates."
+            ]
+        },
+        {
+            "id": "edu_03",
+            "period": "Nov 2024 – Jun 2025",
+            "status": "done",
+            "role": "Leader & Portfolio Manager",
+            "organization": "University of Makati",
+            "logo": "/experience/UMak_Logo.png",
+            "monogram": "UM",
+            "points": [
+                "Havencrest: clinic appointment system (PBL)."
+            ]
+        },
+        {
+            "id": "edu_04",
+            "period": "Nov 2024 – Jun 2025",
+            "status": "done",
+            "role": "Web Development Team Head",
+            "organization": "University of Makati",
+            "logo": "/experience/UMak_Logo.png",
+            "monogram": "UM",
+            "points": [
+                "Makati Heritage Web Portal for the Institute for Social Development and Nation Building."
+            ]
+        }
+    ]
+}
