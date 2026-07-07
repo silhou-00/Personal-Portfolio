@@ -71,7 +71,7 @@ export default function ProjectsGrid() {
         num="03"
         label="Projects"
         meta={`${PROJECTS.length} projects shipped`}
-        verb="I ship"
+        verb="Ships"
       />
 
       <div className="ship-filter" data-reveal>
