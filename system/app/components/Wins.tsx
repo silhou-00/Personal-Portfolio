@@ -23,7 +23,7 @@ export default function Wins() {
     <section id="wins" data-sec>
       <SectionHead
         num="04"
-        label="Wins"
+        label="Achievements"
         meta={`${WINS.length} wins · 1 championship`}
         verb="Recognized"
       />
