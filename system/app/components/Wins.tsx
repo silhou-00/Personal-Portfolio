@@ -25,7 +25,7 @@ export default function Wins() {
         num="04"
         label="Wins"
         meta={`${WINS.length} wins · 1 championship`}
-        verb="I win"
+        verb="Recognized"
       />
 
       <div data-reveal>

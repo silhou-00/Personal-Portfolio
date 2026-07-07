@@ -31,7 +31,7 @@ export default function ExperienceList() {
         num="02"
         label="Experience"
         meta="2 active roles · since 2023"
-        verb="I work"
+        verb="Works"
       />
 
       <div
