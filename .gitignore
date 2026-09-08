@@ -39,3 +39,6 @@ system/.vercel
 # typescript
 system/*.tsbuildinfo
 system/next-env.d.ts
+
+.claude
+design/

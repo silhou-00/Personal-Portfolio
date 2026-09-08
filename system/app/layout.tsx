@@ -1,39 +1,36 @@
 import type { Metadata } from 'next';
-import { Inter, IBM_Plex_Mono, Archivo_Black } from 'next/font/google';
+import { Archivo, Martian_Mono } from 'next/font/google';
 import './globals.css';
-import SmoothScroll from './components/SmoothScroll';
 
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-});
-
-const plexMono = IBM_Plex_Mono({
-  variable: '--font-plex-mono',
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-});
-
-const archivo = Archivo_Black({
+const archivo = Archivo({
   variable: '--font-archivo',
   subsets: ['latin'],
-  weight: '400',
+  weight: ['400', '500', '700'],
+  display: 'swap',
 });
 
+const martian = Martian_Mono({
+  variable: '--font-martian',
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  display: 'swap',
+});
+
+const DESCRIPTION =
+  'Assembling a DevSecOps career at the University of Makati, automating pipelines so teams ship faster without losing security.';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mbalanlay-portfolio.vercel.app'),
-  title: 'Mathew Balanlay · Assembling DevSecOps Engineer',
-  description:
-    'Assembling a DevSecOps career at the University of Makati, automating workflows and pipelines so teams ship faster without sacrificing security.',
+  metadataBase: new URL('https://matportfolio.vercel.app'),
+  title: 'Mathew Angelo Balanlay · Assembling DevSecOps Engineer',
+  description: DESCRIPTION,
   keywords: ['DevSecOps', 'DevOps', 'CI/CD', 'portfolio', 'IT', 'Philippines'],
   authors: [{ name: 'Mathew Angelo Balanlay' }],
 
   openGraph: {
-    title: 'Mathew Balanlay · Assembling DevSecOps Engineer',
-    description:
-      'Automating workflows and pipelines so teams ship faster without sacrificing security.',
-    url: 'https://mbalanlay-portfolio.vercel.app/',
-    siteName: 'Mathew Balanlay Portfolio',
+    title: 'Mathew Angelo Balanlay · Assembling DevSecOps Engineer',
+    description: DESCRIPTION,
+    url: 'https://matportfolio.vercel.app/',
+    siteName: 'Mathew Angelo Balanlay Portfolio',
     images: [
       {
         url: '/Profile.jpg',
@@ -48,28 +45,18 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Mathew Balanlay · Assembling DevSecOps Engineer',
-    description:
-      'Automating workflows and pipelines so teams ship faster without sacrificing security.',
+    title: 'Mathew Angelo Balanlay · Assembling DevSecOps Engineer',
+    description: DESCRIPTION,
     images: ['/Profile.jpg'],
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${plexMono.variable} ${archivo.variable}`}
-    >
-      <body className="antialiased">
-        <SmoothScroll>
-          <main>{children}</main>
-        </SmoothScroll>
-      </body>
+    <html lang="en" className={`${archivo.variable} ${martian.variable}`}>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
