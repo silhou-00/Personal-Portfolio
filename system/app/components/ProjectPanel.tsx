@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useWheelToHorizontal } from './useWheelToHorizontal';
 
 export type Project = {
   id: string;
@@ -95,25 +96,9 @@ function Panel({
     return () => document.removeEventListener('keydown', onKey);
   }, [dismiss]);
 
-  /* Vertical wheel drives the strip sideways. A `wheel` listener, not a
-     `scroll` listener - it fires per gesture, not per frame, and the page
-     behind the panel is locked anyway. preventDefault only while the strip
-     still has somewhere to go, so a wheel at either end is not swallowed. */
-  useEffect(() => {
-    const el = strip.current;
-    if (!el || shots.length < 2) return;
-    const onWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-      const max = el.scrollWidth - el.clientWidth;
-      if (max <= 0) return;
-      const next = el.scrollLeft + e.deltaY;
-      if (next < 0 || next > max) return;
-      e.preventDefault();
-      el.scrollLeft = next;
-    };
-    el.addEventListener('wheel', onWheel, { passive: false });
-    return () => el.removeEventListener('wheel', onWheel);
-  }, [shots.length]);
+  /* Vertical wheel moves the strip sideways - see the hook for why it
+     steps by whole figures instead of by the raw delta. */
+  useWheelToHorizontal(strip);
 
   /* The count tracks the strip with an IntersectionObserver rooted on the
      strip itself - not a scroll listener. */

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import certifications from '../data/certifications.json';
 import achievements from '../data/achievements.json';
 import ProjectPanel, { type PanelItem } from './ProjectPanel';
+import { useWheelToHorizontal } from './useWheelToHorizontal';
 
 type Cert = {
   id: string;
@@ -58,6 +59,10 @@ export default function Certifications() {
   const timer = useRef<number | null>(null);
   const heads = useRef<(HTMLButtonElement | null)[]>([]);
   const lastTrigger = useRef<HTMLButtonElement | null>(null);
+  /* Only one award panel is open at a time, so a single ref follows whichever
+     strip is currently on screen. openIndex rebinds the listener when the
+     open panel changes and the ref points at a different node. */
+  const openStrip = useRef<HTMLDivElement | null>(null);
 
   /* Single-select accordion. The closing panel animates shut while the
      opening one animates open in the same 180ms pass, so both halves read.
@@ -86,6 +91,8 @@ export default function Certifications() {
     },
     []
   );
+
+  useWheelToHorizontal(openStrip, openIndex);
 
   const onHeadKey = (e: React.KeyboardEvent, i: number) => {
     const step = e.key === 'ArrowDown' ? 1 : e.key === 'ArrowUp' ? -1 : 0;
@@ -189,6 +196,7 @@ export default function Certifications() {
                     {shots.length > 0 ? (
                       <div
                         className="acc-imgs"
+                        ref={isOpen ? openStrip : undefined}
                         tabIndex={0}
                         role="group"
                         aria-label={`${a.title} images, ${shots.length} total`}

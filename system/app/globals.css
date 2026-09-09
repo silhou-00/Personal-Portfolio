@@ -452,11 +452,15 @@ details.disc[open] .when-closed{display:none}
    centred figure left a tall band of nothing between the description and the
    images. The framed box now fills the row and the image letterboxes inside
    it, which reads as a plate rather than a gap. */
+/* No scroll snapping on this strip. Snapping - mandatory or proximity - keeps
+   pulling a wheel-driven scroll back toward a figure edge, so the strip only
+   moves when the gesture is large enough to escape the snap point. The strip
+   scrolls freely and the wheel handler animates it instead. */
 .pp-strip{display:flex;gap:var(--gap);overflow-x:auto;overflow-y:hidden;align-items:stretch;
-  scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;scrollbar-width:none;
+  overscroll-behavior-inline:contain;scrollbar-width:none;
   scroll-timeline:--strip inline}
 .pp-strip::-webkit-scrollbar{display:none}
-.pp-strip figure{flex:0 0 92%;scroll-snap-align:start;border:1px solid var(--hairline);
+.pp-strip figure{flex:0 0 92%;border:1px solid var(--hairline);
   display:grid;place-items:center;min-width:0}
 .pp-strip img{width:100%;height:100%;object-fit:contain;filter:var(--plate)}
 .pp-strip:focus-visible{outline:3px solid var(--red);outline-offset:2px}
@@ -597,8 +601,8 @@ html.grid-on .gridhint{display:block}
 .acc-p.is-closing{animation:acc-close var(--dur) linear both}
 .acc-desc{max-width:var(--measure);font-size:var(--t-meta);color:var(--grey);letter-spacing:.02em}
 .acc-imgs{display:flex;gap:var(--gap);overflow-x:auto;margin-top:14px;
-  scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;scrollbar-width:none}
-.acc-imgs figure{flex:0 0 auto;scroll-snap-align:start;border:1px solid var(--hairline)}
+  overscroll-behavior-inline:contain;scrollbar-width:none}
+.acc-imgs figure{flex:0 0 auto;border:1px solid var(--hairline)}
 .acc-imgs img{height:var(--panel-img);width:auto;object-fit:cover;filter:var(--plate)}
 .acc-imgs:focus-visible{outline:3px solid var(--red);outline-offset:2px}
 .acc-none{border-top:4px solid var(--red);padding-top:10px;margin-top:14px;
@@ -631,6 +635,6 @@ html.grid-on .gridhint{display:block}
     transition-duration:.01ms!important;scroll-behavior:auto!important}
   [data-reveal]{opacity:1!important;transform:none!important}
   .caret{animation:none;opacity:1}
-  .wall,.acc-imgs,.pp-strip{scroll-snap-type:none}
+  .wall{scroll-snap-type:none}
   .progress-rail,.progress-bar,.rail-bar i,.pp-bar i{animation-duration:auto!important;animation-iteration-count:1!important}
 }
