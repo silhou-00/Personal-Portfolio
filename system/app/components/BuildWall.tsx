@@ -2,7 +2,9 @@
 
 import { useMemo, useState } from 'react';
 import projects from '../data/projects.json';
+import { ExpandableTrigger } from '@/components/expandable-event-card';
 import ProjectPanel, {
+  panelLayoutId,
   projectToPanel,
   type Project,
 } from './ProjectPanel';
@@ -30,6 +32,7 @@ export default function BuildWall() {
   const all = projects as Project[];
   const [cat, setCat] = useState('all');
   const [open, setOpen] = useState<Project | null>(null);
+  const [more, setMore] = useState(false);
 
   const categories = useMemo(() => {
     const counts = new Map<string, number>();
@@ -48,9 +51,11 @@ export default function BuildWall() {
   const lead = shown.slice(0, VISIBLE);
   const rest = shown.slice(VISIBLE);
 
-  const plate = (p: Project, reveal: boolean) => (
-    <button
-      className="plate"
+  const plate = (p: Project, reveal: boolean, extra = false) => (
+    <ExpandableTrigger
+      layoutId={panelLayoutId(p.id)}
+      expanded={open?.id === p.id}
+      className={extra ? 'plate plate-extra' : 'plate'}
       key={p.id}
       {...(reveal ? { 'data-reveal': '' } : {})}
       onClick={() => setOpen(p)}
@@ -89,7 +94,7 @@ export default function BuildWall() {
           );
         })()}
       </span>
-    </button>
+    </ExpandableTrigger>
   );
 
   return (
@@ -112,13 +117,23 @@ export default function BuildWall() {
           ))}
         </div>
 
-        <div className="wall">{lead.map((p) => plate(p, true))}</div>
+        {/* Every card renders exactly once, in the wall - each carries a
+            layoutId the panel grows out of, so a second copy would split the
+            morph. Phones swipe to the overflow cards; wider screens hide them
+            until the [ + ] toggle below opens. */}
+        <div className={more ? 'wall show-extra' : 'wall'}>
+          {lead.map((p) => plate(p, true))}
+          {rest.map((p) => plate(p, false, true))}
+        </div>
         <div className="rail-bar">
           <i />
         </div>
 
         {rest.length > 0 && (
-          <details className="disc">
+          <details
+            className="disc"
+            onToggle={(e) => setMore(e.currentTarget.open)}
+          >
             <summary>
               <span className="disc-plus">
                 <span className="when-closed">[ + ]</span>
@@ -127,7 +142,6 @@ export default function BuildWall() {
               <span className="when-closed">{rest.length} more</span>
               <span className="when-open">hide</span>
             </summary>
-            <div className="disc-grid">{rest.map((p) => plate(p, false))}</div>
           </details>
         )}
       </div>

@@ -1,8 +1,17 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
 /* ============================================================
    Ported from design/specimen.html (rev 8+).
-   Swiss pack: paper #F3F2EE, ink #1A1A1A, radius 0, no shadows,
-   no blur, every CSS transition value is `none` (motion via
-   `animation`). Do not reintroduce easing curves.
+   Swiss pack: paper #F3F2EE, ink #1A1A1A, radius 0, no shadows.
+   Revised for the shadcn components (components/): motion there is
+   spring- or eased-driven by design - the panel morph, the award split,
+   the grid reveal, the link sweeps - and the progressive blur is the
+   one deliberate blur. Everything in THIS file keeps the original rules:
+   no easing curves, transitions none, motion via `animation`.
    ============================================================ */
 
 :root{
@@ -17,14 +26,56 @@
   --content-max:1240px; --measure:62ch;
   --band:clamp(72px,6vw,112px); --block:clamp(20px,2vw,32px);
   --row-pad:14px; --plate-pad:12px; --progress-h:6px; --panel-img:180px;
-  --dur:180ms; --panel-w:clamp(480px,52vw,880px);
+  --dur:180ms; --panel-w:960px; --panel-m:clamp(16px,4vw,48px);
   /* Images render in full colour. This was a greyscale re-grade
      (grayscale(1) contrast(.9) brightness(.95)) so screenshots would not
      compete with the two-value palette; keeping the token at `none` means
      one place to change if that is ever wanted back. */
   --plate:none;
+  /* shadcn tokens - mapped onto the Swiss palette so installed components
+     inherit paper/ink/hairline and square corners. */
+  --background:var(--paper);
+  --foreground:var(--ink);
+  --card:var(--paper);
+  --card-foreground:var(--ink);
+  --popover:var(--paper);
+  --popover-foreground:var(--ink);
+  --primary:var(--ink);
+  --primary-foreground:var(--paper);
+  --secondary:#E6E4DE;
+  --secondary-foreground:var(--ink);
+  --muted:#E6E4DE;
+  --muted-foreground:var(--grey);
+  --accent:#E6E4DE;
+  --accent-foreground:var(--ink);
+  --destructive:var(--red);
+  --border:var(--hairline);
+  --input:var(--hairline);
+  --ring:var(--ink);
+  --chart-1:var(--ink);
+  --chart-2:var(--red);
+  --chart-3:var(--grey);
+  --chart-4:var(--hairline);
+  --chart-5:#C8C6C0;
+  --radius:0;
+  --sidebar:var(--paper);
+  --sidebar-foreground:var(--ink);
+  --sidebar-primary:var(--ink);
+  --sidebar-primary-foreground:var(--paper);
+  --sidebar-accent:#E6E4DE;
+  --sidebar-accent-foreground:var(--ink);
+  --sidebar-border:var(--hairline);
+  --sidebar-ring:var(--ink);
 }
-*{box-sizing:border-box;margin:0;padding:0}
+/* Element resets live in the base layer. Unlayered, they beat every Tailwind
+   utility regardless of specificity, so `mb-4` or `p-4` on an installed
+   shadcn component silently did nothing. Class rules below stay unlayered
+   and still win over these. */
+@layer base{
+  *{box-sizing:border-box;margin:0;padding:0}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+}
 
 /* ============================ SNAP - BUG FIX ============================
    REPORTED: "the scroll-snap from hero to experience or vice-versa doesnt
@@ -74,6 +125,10 @@
    Tab to it, press Enter, land exactly on the section. That is a better
    keyboard affordance than arrow-key snapping would be.                  */
 html{
+  /* Opening a panel locks scroll on body, which removes the scrollbar; without
+     a reserved gutter the page widened by its width and every card shifted
+     right, then back on close. */
+  scrollbar-gutter:stable;
   scroll-timeline:--page block;
   scroll-padding-top:0;
   scroll-behavior:smooth;
@@ -89,8 +144,6 @@ body{
 }
 ::selection{background:var(--ink);color:var(--paper)}
 :focus-visible{outline:3px solid var(--red);outline-offset:2px}
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
 *{scrollbar-width:thin;scrollbar-color:var(--hairline) transparent}
 *::-webkit-scrollbar{width:8px;height:8px}
 *::-webkit-scrollbar-thumb{background:var(--hairline);border-radius:0}
@@ -369,6 +422,7 @@ img{display:block;max-width:100%}
   .plate{flex:0 0 78vw;scroll-snap-align:start}
   .rail-bar{display:block}
 }
+@media(min-width:768px){ .wall:not(.show-extra) .plate-extra{display:none} }
 .rail-bar{display:none;height:2px;background:var(--hairline);margin-top:14px;grid-column:1/5}
 .rail-bar i{display:block;height:100%;background:var(--red);transform-origin:0 50%;
   animation:grow-h auto linear both;animation-timeline:--railx}
@@ -387,7 +441,9 @@ img{display:block;max-width:100%}
 details.disc{grid-column:1/13;margin-top:var(--gap);
   display:flex;flex-direction:column-reverse;align-items:stretch}
 @media(max-width:1023px){ details.disc{grid-column:1/9} }
-@media(max-width:767px){ details.disc{grid-column:1/5} }
+/* Phones swipe through every project in one row (.plate-extra), so the
+   toggle has nothing left to reveal there. */
+@media(max-width:767px){ details.disc{display:none} }
 /* Bigger, and that is all - no box. It was micro-sized grey and read as a
    footnote despite being the only way to reach three of the seven projects,
    so it moves up to sub size in ink. */
@@ -418,19 +474,24 @@ details.disc[open] .when-closed{display:none}
 @keyframes panel-out{ from{transform:none} to{transform:translateX(100%)} }
 @keyframes scrim-in { from{opacity:0} to{opacity:1} }
 .pscrim{position:fixed;inset:0;background:var(--scrim-soft);z-index:80;
-  animation:scrim-in var(--dur) linear both}
+}
 .pscrim[hidden]{display:none}
-.ppanel{position:fixed;inset-block:0;right:0;width:var(--panel-w);z-index:81;
-  background:var(--paper);border-left:4px solid var(--ink);
-  padding:32px;overflow:hidden;
-  display:grid;grid-template-rows:auto auto auto auto 1fr;row-gap:16px;
-  animation:panel-in var(--dur) linear both}
+/* Motion owns the entrance now (components/expandable-event-card.tsx): the
+   clicked card grows into this box, so a CSS entrance would fight it. The
+   grid lives on .pp-inner, the wrapper that fades in after the morph.
+   Centred, with --panel-m clear on every side: inset 0 + margin auto centres
+   a box with a definite width and height. */
+.ppanel{position:fixed;inset:0;margin:auto;z-index:81;
+  width:min(var(--panel-w), calc(100% - 2 * var(--panel-m)));
+  height:calc(100% - 2 * var(--panel-m));
+  background:var(--paper);border:1px solid var(--ink);border-top:4px solid var(--ink);
+  padding:32px;overflow:hidden}
+.pp-inner{height:100%;display:grid;grid-template-rows:auto auto auto auto 1fr;row-gap:16px}
 .ppanel[hidden]{display:none}
-.ppanel.is-closing{animation:panel-out var(--dur) linear both}
-@media(max-width:767px){ .ppanel{width:100%} }
+@media(max-width:767px){ .ppanel{padding:20px} }
 /* the declared escape hatch: below this height the one-page view cannot fit,
    so the panel is allowed to scroll vertically rather than clip content */
-@media(max-height:640px){ .ppanel{display:block;overflow-y:auto} }
+@media(max-height:640px){ .ppanel{overflow-y:auto} .pp-inner{display:block;height:auto} }
 .pp-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
   border-bottom:2px solid var(--ink);padding-bottom:10px}
 .pp-cat{font-family:var(--mono);font-size:var(--t-meta);letter-spacing:.06em;
@@ -511,7 +572,7 @@ html.grid-on .gridhint{display:block}
 /* Document mode has three rows, not five: header, title, viewer. Without
    this the viewer lands on an `auto` track and collapses to its content
    height instead of filling the panel. */
-.ppanel.is-doc{grid-template-rows:auto auto 1fr}
+.ppanel.is-doc .pp-inner{grid-template-rows:auto auto 1fr}
 .pp-title-row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 .pp-title-meta{font-family:var(--mono);font-size:var(--t-meta);letter-spacing:.06em;
   color:var(--grey);font-weight:400;letter-spacing:.06em}
@@ -610,16 +671,45 @@ html.grid-on .gridhint{display:block}
   text-transform:uppercase;color:var(--grey)}
 @media(max-width:767px){ .acc-imgs img{height:132px} }
 
+/* Split accordion (components/card-split-accordian.tsx). Each row is a box
+   with side rules; the component switches top/bottom rules on and off so
+   neighbours never double a line, and the open row pulls away from its
+   neighbours with a margin. Square corners throughout. */
+.split-list{list-style:none}
+.split-item{border:0 solid var(--hairline);border-inline-width:1px;background:var(--paper)}
+.split-item.is-open{border-color:var(--ink)}
+.split-item .acc-h{border-bottom:0;padding-inline:12px}
+/* A hairline between closed rows that sit together. Rows that already draw
+   their own top edge (first row, the row after the open one) skip it. */
+.split-item:not(.has-top) .acc-h{border-top:1px solid var(--hairline)}
+.split-item.is-open .acc-h{border-bottom:1px solid var(--ink)}
+.split-body{overflow:hidden}
+.split-body .acc-inner{padding:16px 12px 20px}
+
+/* Progressive blur (app/components/PageBlur.tsx, components/ui/edge-blur.tsx). Fixed over the
+   content column only: below the mobile top bar, right of the desktop rail,
+   and under the panel scrim (80) and top bar (20). */
+.page-blur{position:fixed;inset:0;pointer-events:none;z-index:15}
+@media(max-width:1023px){ .page-blur{top:56px} }
+@media(min-width:1024px){ .page-blur{left:var(--rail)} }
+.page-blur .pb-off{opacity:0}
+.page-blur .pb-on{opacity:1}
+
+/* No background, color or transition here: SweepLink paints the hover with
+   background-size and a colour change, and these unlayered rules would
+   override its utilities. The text is ink by inheritance. */
 .addr{grid-column:1/10;font-size:var(--t-heading);font-weight:700;letter-spacing:-.03em;
-  line-height:.96;background:none;border:0;color:var(--ink);font-family:var(--sans);
-  text-align:left;padding:0;cursor:pointer;word-break:break-word;transition:none}
-.addr:hover{background:var(--ink);color:var(--paper)}
+  line-height:.96;border:0;font-family:var(--sans);
+  text-align:left;padding:0;cursor:pointer;word-break:break-word}
+/* hover is SweepLink's fill (components/ui/sweep-link.tsx) */
 @media(max-width:1023px){ .addr{grid-column:1/9} }
 @media(max-width:767px){ .addr{grid-column:1/5;font-size:var(--t-sub)} }
-.c-links{grid-column:10/13;display:flex;flex-direction:column;gap:2px;align-self:end}
+.c-links{grid-column:10/13;display:flex;flex-direction:column;gap:10px;align-self:end}
 @media(max-width:1023px){ .c-links{grid-column:1/9;flex-direction:row;gap:20px;margin-top:var(--block)} }
 @media(max-width:767px){ .c-links{grid-column:1/5} }
-.c-links a{font-size:var(--t-meta);color:var(--grey);min-height:32px;display:flex;align-items:center}
+/* SweepLink's underline sits on the bottom edge of the box, so no
+   min-height or padding that would push it away from the text */
+.c-links a{font-size:var(--t-meta);color:var(--grey);width:fit-content}
 .c-links a:hover{color:var(--ink)}
 
 .scrim{position:fixed;inset:0;background:var(--scrim-hard);z-index:90;
@@ -637,4 +727,91 @@ html.grid-on .gridhint{display:block}
   .caret{animation:none;opacity:1}
   .wall{scroll-snap-type:none}
   .progress-rail,.progress-bar,.rail-bar i,.pp-bar i{animation-duration:auto!important;animation-iteration-count:1!important}
+}
+
+@theme inline {
+  --font-sans:var(--font-archivo);
+  --font-heading:var(--font-archivo);
+  --font-mono:var(--font-martian);
+  --color-sidebar-ring:var(--sidebar-ring);
+  --color-sidebar-border:var(--sidebar-border);
+  --color-sidebar-accent-foreground:var(--sidebar-accent-foreground);
+  --color-sidebar-accent:var(--sidebar-accent);
+  --color-sidebar-primary-foreground:var(--sidebar-primary-foreground);
+  --color-sidebar-primary:var(--sidebar-primary);
+  --color-sidebar-foreground:var(--sidebar-foreground);
+  --color-sidebar:var(--sidebar);
+  --color-chart-5:var(--chart-5);
+  --color-chart-4:var(--chart-4);
+  --color-chart-3:var(--chart-3);
+  --color-chart-2:var(--chart-2);
+  --color-chart-1:var(--chart-1);
+  --color-ring:var(--ring);
+  --color-input:var(--input);
+  --color-border:var(--border);
+  --color-destructive:var(--destructive);
+  --color-accent-foreground:var(--accent-foreground);
+  --color-accent:var(--accent);
+  --color-muted-foreground:var(--muted-foreground);
+  --color-muted:var(--muted);
+  --color-secondary-foreground:var(--secondary-foreground);
+  --color-secondary:var(--secondary);
+  --color-primary-foreground:var(--primary-foreground);
+  --color-primary:var(--primary);
+  --color-popover-foreground:var(--popover-foreground);
+  --color-popover:var(--popover);
+  --color-card-foreground:var(--card-foreground);
+  --color-card:var(--card);
+  --color-foreground:var(--foreground);
+  --color-background:var(--background);
+  --radius-sm:calc(var(--radius) * 0.6);
+  --radius-md:calc(var(--radius) * 0.8);
+  --radius-lg:var(--radius);
+  --radius-xl:calc(var(--radius) * 1.4);
+  --radius-2xl:calc(var(--radius) * 1.8);
+  --radius-3xl:calc(var(--radius) * 2.2);
+  --radius-4xl:calc(var(--radius) * 2.6);
+}
+
+.dark {
+  --background:oklch(0.145 0 0);
+  --foreground:oklch(0.985 0 0);
+  --card:oklch(0.205 0 0);
+  --card-foreground:oklch(0.985 0 0);
+  --popover:oklch(0.205 0 0);
+  --popover-foreground:oklch(0.985 0 0);
+  --primary:oklch(0.922 0 0);
+  --primary-foreground:oklch(0.205 0 0);
+  --secondary:oklch(0.269 0 0);
+  --secondary-foreground:oklch(0.985 0 0);
+  --muted:oklch(0.269 0 0);
+  --muted-foreground:oklch(0.708 0 0);
+  --accent:oklch(0.269 0 0);
+  --accent-foreground:oklch(0.985 0 0);
+  --destructive:oklch(0.704 0.191 22.216);
+  --border:oklch(1 0 0 / 10%);
+  --input:oklch(1 0 0 / 15%);
+  --ring:oklch(0.556 0 0);
+  --chart-1:oklch(0.87 0 0);
+  --chart-2:oklch(0.556 0 0);
+  --chart-3:oklch(0.439 0 0);
+  --chart-4:oklch(0.371 0 0);
+  --chart-5:oklch(0.269 0 0);
+  --sidebar:oklch(0.205 0 0);
+  --sidebar-foreground:oklch(0.985 0 0);
+  --sidebar-primary:oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground:oklch(0.985 0 0);
+  --sidebar-accent:oklch(0.269 0 0);
+  --sidebar-accent-foreground:oklch(0.985 0 0);
+  --sidebar-border:oklch(1 0 0 / 10%);
+  --sidebar-ring:oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

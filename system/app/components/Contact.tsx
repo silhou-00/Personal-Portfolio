@@ -1,5 +1,4 @@
-'use client';
-
+import { SweepLink } from '@/components/ui/sweep-link';
 import site from '../data/site.json';
 
 export default function Contact() {
@@ -12,34 +11,30 @@ export default function Contact() {
           <span className="bn">04</span>Contact
         </h2>
 
-        <button
-          className="addr"
-          data-reveal
-          onClick={() => {
-            window.location.href = `mailto:${site.email}`;
-          }}
+        {/* An ink block sweeps across and the address turns paper on hover.
+            flex-wrap stands in for the <wbr>, which a flex row would ignore,
+            so the address still breaks at the @ on narrow screens. */}
+        <SweepLink
+          variant="fill"
+          href={`mailto:${site.email}`}
+          className="addr flex-wrap"
         >
-          {/* <wbr> so the address breaks at the @ on narrow screens instead of
-              overflowing the well. */}
           {user}
-          <wbr />@{domain}
+          <span>@{domain}</span>
           <span className="caret" aria-hidden="true" />
-        </button>
+        </SweepLink>
 
+        {/* Underline draws left to right, arrow rises in. */}
         <div className="c-links" data-reveal>
-          <a href={site.links.github} target="_blank" rel="noreferrer noopener">
+          <SweepLink href={site.links.github} target="_blank" arrow>
             github
-          </a>
-          <a
-            href={site.links.linkedin}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
+          </SweepLink>
+          <SweepLink href={site.links.linkedin} target="_blank" arrow>
             linkedin
-          </a>
-          <a href={site.resume} target="_blank" rel="noreferrer noopener">
+          </SweepLink>
+          <SweepLink href={site.resume} target="_blank" arrow>
             resume
-          </a>
+          </SweepLink>
         </div>
       </div>
     </section>
