@@ -1,6 +1,10 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import {
+  ExpandablePresence,
+  ExpandableSurface,
+} from '@/components/expandable-event-card';
 import { useWheelToHorizontal } from './useWheelToHorizontal';
 
 export type Project = {
@@ -28,8 +32,6 @@ export type PanelItem = {
   pdf?: string;
 };
 
-const DUR = 180;
-
 export function projectToPanel(p: Project): PanelItem {
   return {
     id: p.id,
@@ -41,44 +43,56 @@ export function projectToPanel(p: Project): PanelItem {
   };
 }
 
+/* The layout id every trigger for this item carries, so the panel knows which
+   box to grow out of and shrink back into. */
+export const panelLayoutId = (id: string) => `panel-${id}`;
+
 export default function ProjectPanel({
   item,
   onClose,
+  layoutId,
 }: {
   item: PanelItem | null;
   onClose: () => void;
+  /* Defaults to panelLayoutId(item.id); pass one when an item has more than
+     one trigger (the resume does) so it grows out of the one that was used. */
+  layoutId?: string;
 }) {
   /* Keyed on the item so opening a different one remounts the panel. That is
      what resets the image index - resetting it with setState inside an effect
-     would cost a second render pass on every open. */
-  if (!item) return null;
-  return <Panel key={item.id} item={item} onClose={onClose} />;
+     would cost a second render pass on every open. Presence keeps it mounted
+     long enough to shrink back into its trigger. */
+  return (
+    <ExpandablePresence>
+      {item && (
+        <Panel
+          key={item.id}
+          item={item}
+          onClose={onClose}
+          layoutId={layoutId ?? panelLayoutId(item.id)}
+        />
+      )}
+    </ExpandablePresence>
+  );
 }
 
 function Panel({
   item,
   onClose,
+  layoutId,
 }: {
   item: PanelItem;
   onClose: () => void;
+  layoutId: string;
 }) {
   const panel = useRef<HTMLElement>(null);
   const strip = useRef<HTMLDivElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
-  const [closing, setClosing] = useState(false);
   const [index, setIndex] = useState(1);
 
   const shots = item.images;
 
-  const dismiss = useCallback(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) return onClose();
-    setClosing(true);
-    window.setTimeout(() => {
-      setClosing(false);
-      onClose();
-    }, DUR);
-  }, [onClose]);
+  const dismiss = onClose;
 
   useEffect(() => {
     closeBtn.current?.focus();
@@ -138,12 +152,10 @@ function Panel({
   };
 
   return (
-    <>
-      <div className="pscrim" onClick={dismiss} />
-      <aside
-        className={`ppanel${closing ? ' is-closing' : ''}${
-          item.pdf ? ' is-doc' : ''
-        }`}
+    <ExpandableSurface
+        layoutId={layoutId}
+        onDismiss={dismiss}
+        className={`ppanel${item.pdf ? ' is-doc' : ''}`}
         ref={panel}
         role="dialog"
         aria-modal="true"
@@ -230,7 +242,6 @@ function Panel({
           )}
         </div>
         )}
-      </aside>
-    </>
+    </ExpandableSurface>
   );
 }

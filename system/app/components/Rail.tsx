@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import site from '../data/site.json';
 import Marks from './Marks';
-import ProjectPanel, { type PanelItem } from './ProjectPanel';
+import { ExpandableTrigger } from '@/components/expandable-event-card';
+import ProjectPanel, { panelLayoutId, type PanelItem } from './ProjectPanel';
 
 /* The hero is a stage too. It was previously excluded, which is why clicking
    the brand scrolled to the top but left "experience" marked as current -
@@ -34,7 +35,10 @@ const RESUME_PANEL: PanelItem = {
 
 export default function Rail() {
   const [active, setActive] = useState('top');
-  const [resumeOpen, setResumeOpen] = useState(false);
+  /* Which resume button opened the panel - there is one in the mobile top
+     bar and one in the desktop rail, and only one is ever visible, so the
+     panel has to grow out of the one that was actually pressed. */
+  const [resumeFrom, setResumeFrom] = useState<'top' | 'side' | null>(null);
 
   /* Read positions and decide, rather than trusting whichever entry the
      observer happened to report last.
@@ -114,13 +118,15 @@ export default function Rail() {
         >
           m.balanlay
         </a>
-        <button
+        <ExpandableTrigger
+          layoutId={panelLayoutId('resume-top')}
+          expanded={resumeFrom === 'top'}
           className="meta linklike"
           style={{ color: 'var(--ink)' }}
-          onClick={() => setResumeOpen(true)}
+          onClick={() => setResumeFrom('top')}
         >
           resume
-        </button>
+        </ExpandableTrigger>
         <span className="progress-bar" aria-hidden="true" />
       </nav>
 
@@ -151,16 +157,22 @@ export default function Rail() {
 
         <div className="side-foot">
           <Marks />
-          <button className="btn" onClick={() => setResumeOpen(true)}>
+          <ExpandableTrigger
+            layoutId={panelLayoutId('resume-side')}
+            expanded={resumeFrom === 'side'}
+            className="btn"
+            onClick={() => setResumeFrom('side')}
+          >
             resume
-          </button>
+          </ExpandableTrigger>
         </div>
         <span className="progress-rail" aria-hidden="true" />
       </aside>
 
       <ProjectPanel
-        item={resumeOpen ? RESUME_PANEL : null}
-        onClose={() => setResumeOpen(false)}
+        item={resumeFrom ? RESUME_PANEL : null}
+        layoutId={resumeFrom ? panelLayoutId(`resume-${resumeFrom}`) : undefined}
+        onClose={() => setResumeFrom(null)}
       />
     </>
   );

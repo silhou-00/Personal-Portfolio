@@ -6,7 +6,10 @@
         "issuer": "Oracle",
         "date": "2025",
         "logo": "/logo/Logo-Oracle-1.webp",
-        "image": ["/certs/ORACLE/OCI_Developer.jpg", "/certs/ORACLE/OCID25CP.jpg"]
+        "image": [
+            "/certs/ORACLE/OCI_Developer.jpg",
+            "/certs/ORACLE/OCID25CP.jpg"
+        ]
     },
     {
         "id": "cert_02",
@@ -15,25 +18,9 @@
         "issuer": "TESDA",
         "date": "2025",
         "logo": "/logo/TESDA-Logo.png",
-        "image": ["/certs/TESDA/NCII.jpg"]
-    },
-    {
-        "id": "cert_03",
-        "category": "webdevelopment",
-        "title": "Fundamentals of Python Programming",
-        "issuer": "Data Analytics Philippines",
-        "date": "2025",
-        "logo": "/logo/DataAnalytics.jpg",
-        "image": ["/certs/DATA_ANALYTICS/Data_Analytics.jpg"]
-    },
-    {
-        "id": "cert_04",
-        "category": "networking",
-        "title": "APNIC Foundation - Internet Resource Management",
-        "issuer": "APNIC",
-        "date": "2026",
-        "logo": "/logo/APNICLogo.png",
-        "image": ["/certs/APNIC/APNIC.jpg"]
+        "image": [
+            "/certs/TESDA/NCII.jpg"
+        ]
     },
     {
         "id": "cert_05",
@@ -42,6 +29,20 @@
         "issuer": "ISC2",
         "date": "2026",
         "logo": "/logo/ISC2Logo.png",
-        "image": ["/certs/ISC2/COMPLETION.jpg"]
+        "image": [
+            "/certs/ISC2/COMPLETION.jpg"
+        ]
+    },
+    {
+        "id": "cert_06",
+        "category": "networking",
+        "title": "Google Cybersecurity Professional Certificate",
+        "issuer": "Google",
+        "date": "2026",
+        "logo": "/certs/GOOGLE/google-logo.webp",
+        "image": [
+            "/certs/GOOGLE/google-cybersecurity-certificate.jpg",
+            "/certs/GOOGLE/badge-google-cybersec.png"
+        ]
     }
 ]
