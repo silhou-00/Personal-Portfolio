@@ -5,23 +5,154 @@
         "title": "SecureFlow",
         "shortDescription": "Hybrid ISMS Document Management Architecture",
         "longDescription": "SecureFlow is an ISO 27001-aligned document management system (Next.js, FastAPI, Supabase) with versioning, multi-step approvals, and classification-based RBAC. Secured with domain-locked Google OAuth and TOTP MFA enforced at the middleware, and containerized with Docker Compose behind IIS on Windows Server, with automated firewall changes and Active Directory sync via Ansible + WinRM.",
-        "techStack": ["Next.js", "FastAPI", "Supabase", "Docker Compose", "IIS", "Ansible", "WinRM"],
-        "links":
-        {
+        "techStack": [
+            "Next.js",
+            "FastAPI",
+            "Supabase",
+            "Docker Compose",
+            "IIS",
+            "Ansible",
+            "WinRM"
+        ],
+        "links": {
             "github": "Private",
             "demo": "Private"
         },
-        "image": []
+        "image": [
+            "/projects/SecureFlow/Cover.jpg",
+            "/projects/SecureFlow/Dashboard.jpg",
+            "/projects/SecureFlow/Repositories.jpg",
+            "/projects/SecureFlow/PullRequest.jpg",
+            "/projects/SecureFlow/VersionDiff.jpg",
+            "/projects/SecureFlow/Activity.jpg",
+            "/projects/SecureFlow/Profile.jpg"
+        ]
     },
     {
         "id": "project_01",
+        "category": "Professional",
+        "title": "Fundr Classic",
+        "shortDescription": "A Windows XP Desktop as a Studio Website",
+        "longDescription": "Fundr Classic is the main site of fundr. studio, built as a working Windows XP desktop: a boot screen picks between the classic desktop and a modern landing page, and every section of the studio opens as a draggable XP window. It ships from a single multi-page Vite build that also serves the studio's browser games and its serverless API routes (newsletter, briefs, PayPal), with a CRT hero plate composited at several widths so a phone never downloads the desktop artwork.",
+        "techStack": [
+            "React 19",
+            "TypeScript",
+            "Vite",
+            "Tailwind CSS v4",
+            "Motion",
+            "Three.js",
+            "Vercel Functions"
+        ],
+        "links": {
+            "github": "Private",
+            "demo": "https://fundrstudio.com/classic/"
+        },
+        "image": [
+            "/projects/FundrClassic/Boot.jpg",
+            "/projects/FundrClassic/About.jpg",
+            "/projects/FundrClassic/Products.jpg",
+            "/projects/FundrClassic/Services.jpg",
+            "/projects/FundrClassic/Process.jpg"
+        ]
+    },
+    {
+        "id": "project_02",
+        "category": "Professional",
+        "title": "TD Scans",
+        "shortDescription": "A Vulnerability Scanning Course Playground",
+        "longDescription": "TD Scans is the lab half of a Tutorials Dojo vulnerability-scanning course. A Node scanner audits a fixed registry of deliberately weak sites against the Mozilla HTTP Observatory model and commits the results as JSON, refreshed nightly by a GitHub Actions workflow that only pushes when the agreement suite passes. The frontend renders those reports and runs seven hands-on labs on top of them with no backend, no database, and no account.",
+        "techStack": [
+            "React 19",
+            "TypeScript",
+            "Vite",
+            "TanStack Router",
+            "Tailwind CSS v4",
+            "shadcn/ui",
+            "Node",
+            "Playwright",
+            "GitHub Actions"
+        ],
+        "links": {
+            "github": "Private",
+            "demo": "https://portal.tutorialsdojo.com/playgrounds/"
+        },
+        "image": [
+            "/projects/TDScans/LabLibrary.jpg",
+            "/projects/TDScans/CaseBriefing.jpg",
+            "/projects/TDScans/ScanReport.jpg",
+            "/projects/TDScans/ScannedTargets.jpg"
+        ]
+    },
+    {
+        "id": "project_03",
+        "category": "Professional",
+        "title": "Desku",
+        "shortDescription": "A VA Workflow Organizer on the App Store",
+        "longDescription": "Desku is a published iOS and Android app that gives Filipino virtual assistants one command center for clients, shifts, tasks, invoices, and income. It tracks shifts across client time zones with local reminders, generates invoice PDFs on device, and reports monthly earnings and overdue payments. Built with Expo and an on-device SQLite store, with subscriptions handled through RevenueCat.",
+        "techStack": [
+            "React Native",
+            "Expo",
+            "TypeScript",
+            "Expo Router",
+            "SQLite",
+            "RevenueCat"
+        ],
+        "links": {
+            "github": "Private",
+            "demo": "https://apps.apple.com/ph/app/desku-va-workflow-organizer/id6776786973"
+        },
+        "image": [
+            "/projects/Desku/Overview.jpg",
+            "/projects/Desku/Shifts.jpg",
+            "/projects/Desku/Tasks.jpg",
+            "/projects/Desku/Income.jpg",
+            "/projects/Desku/Clients.jpg"
+        ]
+    },
+    {
+        "id": "project_04",
+        "category": "Professional",
+        "title": "iSkolar Academy",
+        "shortDescription": "A Student Project Showcase and Funding Platform",
+        "longDescription": "iSkolar Academy is a showcase, discovery, and funding platform for student work. Students publish projects that pass a working-MVP gate and an admin review before becoming publicly discoverable, while a separate grants track lets a thesis request funds from its starting stage with money moving on-platform. Sponsors and investors browse a uniform filterable card, keep private watchlists, and open consent-gated pitch vaults behind subscription tiers. Identity is delegated to iSkolar via federated SSO, so Academy holds no password store.",
+        "techStack": [
+            "React 19",
+            "TanStack Start",
+            "Tailwind CSS 4",
+            "Hono",
+            "PostgreSQL",
+            "Zod",
+            "Vitest"
+        ],
+        "links": {
+            "github": "Private",
+            "demo": "https://academy.iskolar.io/"
+        },
+        "image": [
+            "/projects/IskolarAcademy/Landing.jpg",
+            "/projects/IskolarAcademy/WhyAcademy.jpg",
+            "/projects/IskolarAcademy/Process.jpg",
+            "/projects/IskolarAcademy/Partners.jpg",
+            "/projects/IskolarAcademy/RecentlyPublished.jpg"
+        ]
+    },
+    {
+        "id": "project_05",
         "category": "University",
         "title": "GabayTek",
         "shortDescription": "A Structured Course Platform Enhanced by an AI-Learning Assistant",
         "longDescription": "GabayTek is a cross-platform Electron + React desktop app with a bundled Flask backend. It uses dual auth (local JWT plus Supabase OAuth) with RBAC, and serves AI recommendation and learning-style assessment endpoints powered by Gemini 2.5 Pro. Build and release are fully automated: PyInstaller backend packaging, electron-builder multi-OS installers, and electron-updater auto-updates.",
-        "techStack": ["Electron-Vite", "React", "Tailwind CSS", "Python", "Flask", "Supabase", "Gemini 2.5 Pro", "QDrant"],
-        "links":
-        {
+        "techStack": [
+            "Electron-Vite",
+            "React",
+            "Tailwind CSS",
+            "Python",
+            "Flask",
+            "Supabase",
+            "Gemini 2.5 Pro",
+            "QDrant"
+        ],
+        "links": {
             "github": "Private",
             "demo": "https://gabaytek-landingpage.vercel.app/"
         },
@@ -34,73 +165,16 @@
         ]
     },
     {
-        "id": "project_02",
-        "category": "Personal",
-        "title": "Anchor",
-        "shortDescription": "First Personal Project",
-        "longDescription": "Anchor is a Project that tracks the user's income and daily expenses to help them manage their finances better.",
-        "techStack": ["React-Vite", "Tailwind CSS", "Node.js", "Supabase"],
-        "links":
-        {
-            "github": "Private",
-            "demo": "https://audit-anchor.vercel.app/"
-        },
-        "image": [
-            "/projects/Anchor/Landing.jpg",
-            "/projects/Anchor/Dashboard.jpg",
-            "/projects/Anchor/Audit.jpg",
-            "/projects/Anchor/Report.jpg",
-            "/projects/Anchor/DataExported.jpg"
-        ]
-    },
-    {
-        "id": "project_03",
-        "category": "Hackathon",
-        "title": "MemoriA",
-        "shortDescription": "A Hackathon Project",
-        "longDescription": "MemoriA is a simulated system for dementia patients that simulates a smart glass that can help the patient detect who the person is in front of them and provide information about the person with a voice assistant powered by AGORA.",
-        "techStack": ["Next.js", "Tailwind CSS", "Node.js", "Supabase"],
-        "links":
-        {
-            "github": "Private",
-            "demo": "Private"
-        },
-        "image": [
-            "/projects/MemoriA/Landing.jpg",
-            "/projects/MemoriA/MVP.jpg",
-            "/projects/MemoriA/Caregiver.jpg",
-            "/projects/MemoriA/MembersData.jpg"
-        ]
-    },
-    {
-        "id": "project_04",
-        "category": "Hackathon",
-        "title": "Project Hinga",
-        "shortDescription": "A Hackathon Project",
-        "longDescription": "Project Hinga is a simulated system for tubercolosis patients that simulates a future-proof feature for using a stethoscope-like for your smartphone to help the patient give daily reports to their doctor without having to go to the hospital.",
-        "techStack": ["React-Vite", "Tailwind CSS", "Python", "Flask", "Supabase"],
-        "links":
-        {
-            "github": "Private",
-            "demo": "Private"
-        },
-        "video": "/projects/Project Hinga/2025-12-17 13-05-36.mp4",
-        "image": [
-            "/projects/Project Hinga/DoctorPortal.jpg",
-            "/projects/Project Hinga/Statistics.jpg",
-            "/projects/Project Hinga/Logs.jpg",
-            "/projects/Project Hinga/SellData.jpg"
-        ]
-    },
-    {
-        "id": "project_05",
+        "id": "project_06",
         "category": "University",
         "title": "Makati Heritage Web Portal",
         "shortDescription": "A Static Website detailing Makati City",
         "longDescription": "The web portal is a project for the ISDNB in the University of Makati. It details all the heritage sites in Makati City.",
-        "techStack": ["HTML", "CSS"],
-        "links":
-        {
+        "techStack": [
+            "HTML",
+            "CSS"
+        ],
+        "links": {
             "github": "Unknown",
             "demo": "https://makatiheritagewebportal.vercel.app/"
         },
@@ -113,21 +187,30 @@
         ]
     },
     {
-        "id": "project_06",
+        "id": "project_07",
         "category": "Personal",
-        "title": "Valentines 2026",
-        "shortDescription": "Lobotomy Corporation Inspired Showcasing",
-        "longDescription": "Lobotomy Corporation Inspired Showcasing for Valentines 2026",
-        "techStack": ["NextJS", "TailwindCSS"],
-        "links":
-        {
-            "github": "https://github.com/silhou-00/valentines2026",
-            "demo": "https://valentines2026-beby.vercel.app/"
+        "title": "Cove",
+        "shortDescription": "An Offline-First Task and Agenda Manager for Android",
+        "longDescription": "Cove is a single-user Flutter app for Android with no account, no backend, and no telemetry: tasks, schedules, recurrences, and categories live in a local Drift database on the phone. A typed line is parsed into area, priority, and schedule by Quick Add, then shown through four lenses (Agenda, Up Next, Calendar, Areas) that are mirrored by three tap-to-complete home-screen widgets. Reminders fire from on-device notifications, completing tasks earns XP toward cosmetic-only unlocks, and Google Calendar sync is optional and off by default.",
+        "techStack": [
+            "Flutter",
+            "Dart",
+            "Riverpod",
+            "Drift",
+            "go_router",
+            "Google Calendar API"
+        ],
+        "links": {
+            "github": "https://github.com/silhou-00/cove",
+            "demo": "https://silhou-00.github.io/cove/"
         },
         "image": [
-            "/projects/Valentines2026/LoadingPage.jpg",
-            "/projects/Valentines2026/MVP.jpg",
-            "/projects/Valentines2026/Information.jpg"
+            "/projects/Cove/Splash.jpg",
+            "/projects/Cove/Agenda.jpg",
+            "/projects/Cove/QuickAdd.jpg",
+            "/projects/Cove/Calendar.jpg",
+            "/projects/Cove/Areas.jpg",
+            "/projects/Cove/Settings.jpg"
         ]
     }
 ]
